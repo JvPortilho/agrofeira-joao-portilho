@@ -1,35 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-   <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sobre a nossa Agrofeira</title>
 </head>
+
 <body>
+
     <header>
         <h1>Sobre a nossa Agrofeira</h1>
+
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="https://www.ufra.edu.br">UFRA</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#local">Local e horário</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <h2>Conheça um pouco da nossa feira!</h2>
-        <p>Famílias de Fazendas e Sítios próximos de Paragominas e região.</p>
-        <p>Cada uma traz o produto que fabrica ou colheu na semana e vende direto ao cliente.</p>
-        <h3>Produtos vendidos</h3>
-        <ul>
-            <li>Chocolate Barra ao leite - 10 barras 200 gramas.</li>
-            <li>Cheiro verde - maço</li>
-            <li>Artesanatos - unidade</li>
-        </ul>
-        <h3>Local das vendas</h3>
-        <ol>
-            <li>Praça Celio Miranda</li>
-            <li>Sábado a partir das 18 horas</li> 
-        </ol> 
-    </main> 
+
+        <section>
+            <h2 id="apresentacao">Conheça um pouco da nossa feira!</h2>
+
+            <p>
+                Famílias de fazendas e sítios próximos de Paragominas
+                e região participam da feira.
+            </p>
+
+            <p>
+                Cada uma traz o produto que fabrica ou colheu na semana
+                e vende direto ao cliente, com
+                <em>produtos frescos e de qualidade</em>.
+            </p>
+
+            <figure>
+                <picture>
+                    <source media="(min-width: 800px)"
+                            srcset="feira-1280.jpg">
+
+                    <img src="feira-330.jpg"
+                         alt="Barraca de frutas e verduras na feira"
+                         width="330">
+                </picture>
+
+                <figcaption>
+                    Barraca de frutas e verduras na feira.
+                    Crédito:Rayelle da Silva Freitas, CC BY-SA 4.0, via Wikimedia Commons;
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <form method="get">
+                <label for="campo">Procurar produto</label>
+
+                <input type="search"
+                       id="campo"
+                       name="campo">
+
+                <button type="submit">
+                    <img src="lupa.png"
+                         alt="Procurar produto">
+                </button>
+            </form>
+        </section>
+
+        <section>
+            <h2 id="produtos">Produtos vendidos</h2>
+            <ul>
+                <li>Mandioca — saca de 60 kg</li>
+                <li>Banana-prata — cacho</li>
+                <li>Açaí — rasa</li>
+                <li>Pimenta-do-reino — quilo</li>
+                <li>Cupuaçu — quilo</li>
+                <li>Alface — maço</li>
+            </ul>
+        </section>
+
+        <aside>
+            <p>
+                Os preços mudam toda semana.
+                <strong>Consulte os preços antes de comprar.</strong>
+            </p>
+        </aside>
+    </main>
+
+    <footer id="local">
+        <h2>Local das vendas</h2>
+
+        <address>
+            Praça Celio Miranda<br>
+            Sábado, a partir das 18 horas
+        </address>
+    </footer>
+
 </body>
 </html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de produtor</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cadastro de produtor</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="safra.html">Calendário de safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <form>
+
+            <fieldset>
+                <legend>Quem é você</legend>
+
+                <p>
+                    <label for="nome">Nome completo</label>
+                    <input type="text"
+                           id="nome"
+                           name="nome"
+                           autocomplete="name"
+                           required>
+                </p>
+
+                <p>
+                    <label for="email">E-mail</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           autocomplete="email"
+                           required>
+                </p>
+
+                <p>
+                    <label for="telefone">Telefone</label>
+                    <input type="tel"
+                           id="telefone"
+                           name="telefone"
+                           autocomplete="tel">
+                </p>
+
+                <p>
+                    <label for="caf">Número do CAF</label>
+                    <input type="text"
+                           id="caf"
+                           name="caf">
+                </p>
+
+                <p>
+                    <label for="cep">CEP da propriedade</label>
+                    <input type="text"
+                           id="cep"
+                           name="cep"
+                           inputmode="numeric"
+                           pattern="[0-9]{5}(-?[0-9]{3})?"
+                           aria-describedby="ajuda-cep">
+
+                    <small id="ajuda-cep">
+                        Digite no formato 00000-000. O hífen é opcional.
+                    </small>
+                </p>
+
+            </fieldset>
+
+
+            <fieldset>
+                <legend>O que você vende</legend>
+
+                <p>
+                    <label for="produto">Produto principal</label>
+
+                    <select id="produto"
+                            name="produto"
+                            required>
+
+                        <option value="">Escolha um produto</option>
+                        <option value="mandioca">Mandioca</option>
+                        <option value="banana-prata">Banana-prata</option>
+                        <option value="acai">Açaí</option>
+                        <option value="pimenta-do-reino">Pimenta-do-reino</option>
+                        <option value="cupuacu">Cupuaçu</option>
+                        <option value="alface">Alface</option>
+
+                    </select>
+                </p>
+
+
+                <p>
+                    <label for="quantidade">Quantidade por semana</label>
+
+                    <input type="number"
+                           id="quantidade"
+                           name="quantidade"
+                           min="1"
+                           max="500"
+                           step="1"
+                           required>
+                </p>
+
+
+                <p>
+                    <label for="data">Começa a entregar em</label>
+
+                    <input type="date"
+                           id="data"
+                           name="data">
+                </p>
+
+
+                <fieldset>
+                    <legend>Como entrega</legend>
+
+                    <p>
+                        <input type="radio"
+                               id="leva-feira"
+                               name="entrega"
+                               value="leva-feira">
+
+                        <label for="leva-feira">
+                            Leva à feira
+                        </label>
+                    </p>
+
+                    <p>
+                        <input type="radio"
+                               id="retira-propriedade"
+                               name="entrega"
+                               value="retira-propriedade">
+
+                        <label for="retira-propriedade">
+                            A feira retira na propriedade
+                        </label>
+                    </p>
+
+                </fieldset>
+
+
+                <p>
+                    <label for="observacao">Observação</label>
+
+                    <textarea id="observacao"
+                              name="observacao"
+                              rows="5"></textarea>
+                </p>
+
+
+                <p>
+                    <input type="checkbox"
+                           id="regras"
+                           name="regras"
+                           required>
+
+                    <label for="regras">
+                        Aceito as regras
+                    </label>
+                </p>
+
+            </fieldset>
+
+
+            <button type="submit">Enviar formulário</button>
+
+        </form>
+
+
+        <p id="status" role="status"></p>
+
+    </main>
+
+</body>
+
+</html>
