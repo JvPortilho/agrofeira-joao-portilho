@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sobre a nossa Agrofeira</title>
+    <title>Início — AgroFeira</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
     <header class="cabecalho-site">
 
-        <h1>Sobre a nossa Agrofeira</h1>
+        <h1>AgroFeira</h1>
 
         <nav aria-label="Principal">
             <ul class="menu">
@@ -40,15 +40,16 @@
 
     <main id="conteudo">
 
+        <!-- Primeira seção temática -->
         <section>
 
-            <h2 id="apresentacao">Conheça um pouco da nossa feira</h2>
+            <h2 id="apresentacao">Conheça a AgroFeira</h2>
 
             <p>
-                Famílias de fazendas e sítios próximos de Paragominas
-                e região participam da feira. Cada uma traz o produto
-                que fabrica ou colheu na semana e vende diretamente
-                ao cliente, com <em>produtos frescos e de qualidade</em>.
+                A AgroFeira reúne produtores da região de Paragominas
+                para oferecer alimentos frescos diretamente aos
+                consumidores, valorizando a produção local e
+                fortalecendo a agricultura familiar.
             </p>
 
             <p>
@@ -56,22 +57,23 @@
                 e escolha os seus favoritos na nossa feira.
             </p>
 
-
             <figure class="figura-destaque">
 
                 <picture>
-                    <img src="feira-330.jpg"
-                         srcset="feira-330.jpg 330w,
-                                 feira-1280.jpg 1280w"
-                         sizes="(max-width: 600px) 330px, 330px"
-                         alt="Barraca de frutas e verduras com diversos produtos na feira"
-                         width="330"
-                         height="247">
+                    <img
+                        src="feira-330.jpg"
+                        srcset="feira-330.jpg 330w,
+                                feira-1280.jpg 1280w"
+                        sizes="(max-width: 600px) 330px, 1280px"
+                        alt="Barracas de feira com frutas, verduras e outros produtos"
+                        width="330"
+                        height="247">
                 </picture>
 
                 <figcaption>
-                    Barraca de frutas e verduras na feira.
-                    Foto: Rayelle da Silva Freitas, CC BY-SA 4.0, via Wikimedia Commons.
+                    Feira com produtos agrícolas.
+                    Foto: Rayelle da Silva Freitas,
+                    CC BY-SA 4.0, via Wikimedia Commons.
                 </figcaption>
 
             </figure>
@@ -79,34 +81,36 @@
         </section>
 
 
-        <section class="busca">
+        <!-- Formulário de busca -->
+        <form class="busca" role="search" method="get">
 
-            <form class="busca" method="get">
+            <label for="campo">Procurar produto</label>
 
-                <label for="campo">Procurar produto</label>
+            <input
+                type="search"
+                id="campo"
+                name="campo">
 
-                <input type="search"
-                       id="campo"
-                       name="campo">
+            <button type="submit">
+                <img
+                    src="lupa.png"
+                    alt="Procurar produto"
+                    width="40"
+                    height="40">
+            </button>
 
-                <button type="submit">
-                    <img src="lupa.png"
-                         alt="Procurar produto"
-                         width="40"
-                         height="40">
-                </button>
-
-            </form>
-
-        </section>
+        </form>
 
 
+        <!-- Segunda seção temática -->
         <section>
 
             <h2 id="produtos">Produtos vendidos</h2>
 
             <p>
-                <a href="#apresentacao">Voltar para a apresentação da feira</a>
+                <a href="#apresentacao">
+                    Voltar para a apresentação da feira
+                </a>
             </p>
 
             <ul class="lista-produtos">
@@ -140,6 +144,7 @@
         </section>
 
 
+        <!-- Única caixa genérica da página -->
         <div class="aviso">
 
             <p>
@@ -152,20 +157,23 @@
     </main>
 
 
+    <!-- Conteúdo relacionado -->
     <aside>
+
         <h2>Onde encontrar a feira</h2>
 
         <address>
             Praça Celio Miranda<br>
             Sábado, a partir das 18 horas
         </address>
+
     </aside>
 
 
     <footer class="rodape-site">
 
         <p>
-            Sobre a nossa Agrofeira
+            AgroFeira — produtos da agricultura familiar.
         </p>
 
     </footer>
