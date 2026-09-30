@@ -1,0 +1,52 @@
+:root {
+
+  /* ==============================
+     CORES
+     ============================== */
+
+  --cor-fundo: #f7f3e8;
+  --cor-superficie: #ffffff;
+  --cor-texto: #262626;
+  --cor-texto-suave: #595959;
+  --cor-marca: #8a3b12;
+  --cor-sobremarca: #ffffff;
+  --cor-borda: #b8b1a5;
+
+
+  /* ==============================
+     FONTES
+     ============================== */
+
+  --fonte-texto: system-ui, sans-serif;
+  --fonte-titulo: "Nunito", sans-serif;
+
+
+  /* ==============================
+     TAMANHOS
+     Multiplicador da escala: 1.25
+     ============================== */
+
+  --tamanho-texto: 1rem;
+  --tamanho-h3: 1.25rem;
+  --tamanho-h2: 1.563rem;
+  --tamanho-h1: 1.953rem;
+
+
+  /* ==============================
+     ESPAÇAMENTOS
+     ============================== */
+
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2rem;
+
+
+  /* ==============================
+     CANTOS E SOMBRA
+     ============================== */
+
+  --raio: 8px;
+
+  --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
+}
