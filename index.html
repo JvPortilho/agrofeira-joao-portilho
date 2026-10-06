@@ -10,6 +10,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
         rel="stylesheet">
@@ -18,20 +19,29 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="estilo.css">
+
+    <!-- Testes da Parte B -->
+    <link rel="stylesheet" href="casos.css">
 </head>
+
 
 <body>
 
+    <!-- Link de acessibilidade -->
     <a class="pular" href="#conteudo">
         Pular para o conteúdo
     </a>
 
+
+    <!-- CABEÇALHO -->
     <header class="cabecalho-site">
 
         <h1>AgroFeira</h1>
 
         <nav aria-label="Principal">
+
             <ul class="menu">
+
                 <li>
                     <a href="index.html" aria-current="page">
                         Início
@@ -55,13 +65,19 @@
                         Sobre
                     </a>
                 </li>
+
             </ul>
+
         </nav>
 
     </header>
 
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main id="conteudo">
 
+
+        <!-- APRESENTAÇÃO -->
         <section>
 
             <h2 id="apresentacao">
@@ -82,19 +98,21 @@
                 e escolha os seus favoritos na nossa feira.
             </p>
 
+
+            <!-- FOTO DA FEIRA -->
             <figure class="figura-destaque">
 
                 <picture>
+
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="feira-330.jpg">
+
                     <img
-                        src="feira-330.jpg"
-                        srcset="
-                            feira-330.jpg 330w,
-                            feira-1280.jpg 1280w
-                        "
-                        sizes="(max-width: 600px) 330px, 1280px"
-                        alt="Barracas de feira com frutas, verduras e outros produtos"
-                        width="330"
-                        height="247">
+                        src="feira-1280.jpg"
+                        alt="Barraca de feira com frutas, verduras e outros produtos agrícolas"
+                        width="330">
+
                 </picture>
 
                 <figcaption>
@@ -107,27 +125,36 @@
 
         </section>
 
-        <form class="busca" role="search" method="get">
 
-            <label for="campo">
+        <!-- BUSCA -->
+        <form
+            class="busca"
+            role="search"
+            method="get">
+
+            <label for="procurar-produto">
                 Procurar produto
             </label>
 
             <input
                 type="search"
-                id="campo"
-                name="campo">
+                id="procurar-produto"
+                name="produto">
 
             <button type="submit">
+
                 <img
                     src="lupa.png"
-                    alt="Procurar produto"
-                    width="40"
-                    height="40">
+                    alt="Pesquisar"
+                    width="32"
+                    height="32">
+
             </button>
 
         </form>
 
+
+        <!-- PRODUTOS -->
         <section>
 
             <h2 id="produtos">
@@ -139,6 +166,7 @@
                     Voltar para a apresentação da feira
                 </a>
             </p>
+
 
             <ul class="lista-produtos">
 
@@ -170,30 +198,80 @@
 
         </section>
 
+
+        <!-- AVISO -->
         <div class="aviso">
 
             <p>
-                Os preços mudam toda semana.
-                <strong>
-                    Consulte os preços antes de comprar.
-                </strong>
+                Os produtos disponíveis podem variar
+                conforme a época do ano.
             </p>
 
         </div>
 
+
+        <!-- ======================================
+             TESTES DA PARTE B
+             ====================================== -->
+
+        <section>
+
+            <h2>Testes de CSS</h2>
+
+
+            <!-- CASO 1: CASCATA -->
+
+            <h3>Caso 1 — Cascata</h3>
+
+            <p class="teste-cascata">
+                Teste de cascata.
+            </p>
+
+
+            <!-- CASO 2: ESPECIFICIDADE -->
+
+            <h3>Caso 2 — Especificidade</h3>
+
+            <div class="caixa-teste">
+
+                <p class="teste-especificidade">
+                    Teste de especificidade.
+                </p>
+
+            </div>
+
+
+            <!-- CASO 3: HERANÇA -->
+
+            <h3>Caso 3 — Herança</h3>
+
+            <div class="teste-heranca">
+
+                <p>
+                    Teste de herança.
+                </p>
+
+            </div>
+
+        </section>
+
+
     </main>
 
+
+    <!-- CONTEÚDO RELACIONADO -->
     <aside>
 
-        <h2>Onde encontrar a feira</h2>
+        <h2>Onde encontrar a AgroFeira</h2>
 
-        <address>
-            Praça Celio Miranda<br>
-            Sábado, a partir das 18 horas
-        </address>
+        <p>
+            Paragominas — Pará
+        </p>
 
     </aside>
 
+
+    <!-- RODAPÉ -->
     <footer class="rodape-site">
 
         <p>

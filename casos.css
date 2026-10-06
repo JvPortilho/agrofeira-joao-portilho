@@ -1,0 +1,34 @@
+/* casos.css — testes de cascata, especificidade e herança */
+
+/* CASO 1 — CASCATA
+   Duas regras com a mesma especificidade.
+   A segunda vence porque aparece depois. */
+
+.teste-cascata {
+    color: var(--cor-texto);
+}
+
+.teste-cascata {
+    color: var(--cor-marca);
+}
+
+
+/* CASO 2 — ESPECIFICIDADE
+   O seletor com duas classes é mais específico
+   que o seletor com apenas uma classe. */
+
+.teste-especificidade {
+    color: var(--cor-texto);
+}
+
+.caixa-teste .teste-especificidade {
+    color: var(--cor-marca);
+}
+
+
+/* CASO 3 — HERANÇA
+   O elemento filho herda a cor definida no elemento pai. */
+
+.teste-heranca {
+    color: var(--cor-marca);
+}
