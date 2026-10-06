@@ -4,35 +4,62 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sobre a nossa Agrofeira</title>
+
+    <title>Sobre — AgroFeira</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Folhas de estilo -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
 
-    <a href="#conteudo">Pular para o conteúdo</a>
+    <a class="pular" href="#conteudo">
+        Pular para o conteúdo
+    </a>
 
     <header class="cabecalho-site">
 
         <h1>Sobre a nossa Agrofeira</h1>
 
         <nav aria-label="Principal">
+
             <ul class="menu">
+
                 <li>
-                    <a href="index.html">Início</a>
+                    <a href="index.html">
+                        Início
+                    </a>
                 </li>
 
                 <li>
-                    <a href="safra.html">Safra</a>
+                    <a href="safra.html">
+                        Safra
+                    </a>
                 </li>
 
                 <li>
-                    <a href="cadastro-produtor.html">Cadastro</a>
+                    <a href="cadastro-produtor.html">
+                        Cadastro
+                    </a>
                 </li>
 
                 <li>
-                    <a href="sobre.html" aria-current="page">Sobre</a>
+                    <a href="sobre.html" aria-current="page">
+                        Sobre
+                    </a>
                 </li>
+
             </ul>
+
         </nav>
 
     </header>
@@ -42,55 +69,65 @@
 
         <h2>Sobre a nossa feira</h2>
 
-
+        <!-- CUPUAÇU -->
         <section>
+
             <h3>O cupuaçu na nossa feira</h3>
 
             <figure>
 
-                <img src="cupuacu.jpg"
-                     alt="Cupuaçu aberto mostrando a polpa e as sementes"
-                     width="330"
-                     height="247"
-                     loading="lazy">
+                <img
+                    src="cupuacu.jpg"
+                    alt="Cupuaçu aberto mostrando a polpa e as sementes"
+                    width="330"
+                    height="247"
+                    loading="lazy">
 
                 <figcaption>
-                    Foto: BjoernS, CC BY-SA 2.0 DE, via Wikimedia Commons.
+                    Foto: BjoernS, CC BY-SA 2.0 DE,
+                    via Wikimedia Commons.
                 </figcaption>
 
             </figure>
 
             <blockquote>
                 <p>
-                    O cupuaçu é um produto muito apreciado na nossa região
-                    e pode ser usado para preparar diversos alimentos.
+                    O cupuaçu é um dos produtos encontrados
+                    na AgroFeira e faz parte da produção
+                    agrícola da região.
                 </p>
             </blockquote>
 
         </section>
 
 
+        <!-- COMO VENDER -->
         <section>
 
             <h3>Como vender na feira</h3>
 
             <ol>
                 <li>
-                    Preparar os produtos para levar à feira.
+                    Faça o cadastro como produtor.
                 </li>
 
                 <li>
-                    Organizar os produtos na banca.
+                    Informe os produtos que deseja vender.
                 </li>
 
                 <li>
-                    Atender os clientes e realizar as vendas.
+                    Informe como os produtos serão entregues.
+                </li>
+
+                <li>
+                    Aguarde a confirmação da AgroFeira.
                 </li>
             </ol>
 
         </section>
 
 
+        <!-- GLOSSÁRIO -->
         <section>
 
             <h3>Glossário</h3>
@@ -99,17 +136,19 @@
 
                 <dt>Saca</dt>
                 <dd>
-                    Unidade usada para vender a mandioca.
+                    Unidade utilizada para armazenar e
+                    transportar produtos agrícolas.
                 </dd>
 
                 <dt>Cacho</dt>
                 <dd>
-                    Unidade usada para vender a banana-prata.
+                    Conjunto de frutos ligados a uma mesma haste.
                 </dd>
 
                 <dt>Rasa</dt>
                 <dd>
-                    Unidade usada para vender o açaí.
+                    Recipiente utilizado para armazenar
+                    e transportar produtos como o açaí.
                 </dd>
 
             </dl>
@@ -117,24 +156,31 @@
         </section>
 
 
+        <!-- PERGUNTAS FREQUENTES -->
         <section>
 
             <h3>Perguntas frequentes</h3>
 
-            <details class="pergunta" name="faq" open>
+            <details
+                class="pergunta"
+                name="faq"
+                open>
 
                 <summary>
                     Quando acontece a feira?
                 </summary>
 
                 <p>
-                    A feira acontece aos sábados, a partir das 18 horas.
+                    A feira acontece aos sábados,
+                    a partir das 18 horas.
                 </p>
 
             </details>
 
 
-            <details class="pergunta" name="faq">
+            <details
+                class="pergunta"
+                name="faq">
 
                 <summary>
                     Onde acontece a feira?
@@ -147,15 +193,17 @@
             </details>
 
 
-            <details class="pergunta" name="faq">
+            <details
+                class="pergunta"
+                name="faq">
 
                 <summary>
-                    Quais produtos são vendidos?
+                    Quem pode vender na AgroFeira?
                 </summary>
 
                 <p>
-                    São vendidos mandioca, banana-prata, açaí,
-                    pimenta-do-reino, cupuaçu e alface.
+                    Produtores cadastrados podem participar
+                    da AgroFeira.
                 </p>
 
             </details>
@@ -163,10 +211,12 @@
         </section>
 
 
-        <img src="enfeite.png"
-             alt=""
-             width="330"
-             height="93">
+        <!-- IMAGEM DECORATIVA -->
+        <img
+            src="enfeite.png"
+            alt=""
+            width="330"
+            height="93">
 
     </main>
 
