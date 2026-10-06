@@ -1,52 +1,36 @@
 :root {
 
-  /* ==============================
-     CORES
-     ============================== */
+    /* CORES */
+    --cor-fundo: #f4f7f2;
+    --cor-superficie: #ffffff;
+    --cor-texto: #242424;
+    --cor-texto-suave: #595959;
+    --cor-marca: #78350f;
+    --cor-sobre-marca: #ffffff;
+    --cor-borda: #b7b7b7;
 
-  --cor-fundo: #f7f3e8;
-  --cor-superficie: #ffffff;
-  --cor-texto: #262626;
-  --cor-texto-suave: #595959;
-  --cor-marca: #8a3b12;
-  --cor-sobremarca: #ffffff;
-  --cor-borda: #b8b1a5;
+    /* FONTES */
+    --fonte-texto: system-ui, sans-serif;
+    --fonte-titulo: "Nunito", sans-serif;
 
+    /*
+       ESCALA TIPOGRÁFICA
+       Multiplicador escolhido: 1.25
+    */
+    --tamanho-texto: 1rem;
+    --tamanho-h3: 1.25rem;
+    --tamanho-h2: 1.563rem;
+    --tamanho-h1: 1.953rem;
 
-  /* ==============================
-     FONTES
-     ============================== */
+    /* ESPAÇAMENTOS */
+    --espaco-1: 0.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 1.5rem;
+    --espaco-4: 2rem;
 
-  --fonte-texto: system-ui, sans-serif;
-  --fonte-titulo: "Nunito", sans-serif;
+    /* CANTOS */
+    --raio: 8px;
 
-
-  /* ==============================
-     TAMANHOS
-     Multiplicador da escala: 1.25
-     ============================== */
-
-  --tamanho-texto: 1rem;
-  --tamanho-h3: 1.25rem;
-  --tamanho-h2: 1.563rem;
-  --tamanho-h1: 1.953rem;
-
-
-  /* ==============================
-     ESPAÇAMENTOS
-     ============================== */
-
-  --espaco-1: 0.5rem;
-  --espaco-2: 1rem;
-  --espaco-3: 1.5rem;
-  --espaco-4: 2rem;
-
-
-  /* ==============================
-     CANTOS E SOMBRA
-     ============================== */
-
-  --raio: 8px;
-
-  --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
+    /* SOMBRA */
+    --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
 }
