@@ -1,5 +1,8 @@
 
-/* estilo.css — AgroFeira, encontros 3 e 4 */
+/* ========================================
+   ESTILO.CSS — AGROFEIRA
+   ATIVIDADES 03 E 04
+   ======================================== */
 
 
 /* ========================================
@@ -106,7 +109,7 @@ p {
 
 
 /* ========================================
-   HOME - LISTA DE PRODUTOS
+   LISTA DE PRODUTOS
    ======================================== */
 
 .lista-produtos {
@@ -116,7 +119,7 @@ p {
 
 
 /* ========================================
-   HOME - CARTÕES DOS PRODUTOS
+   CARTÕES DOS PRODUTOS
    ======================================== */
 
 .cartao-produto {
@@ -131,7 +134,7 @@ p {
 
 
 /* ========================================
-   HOME - FIGURA DE DESTAQUE
+   HOME — FIGURA DE DESTAQUE
    ======================================== */
 
 .figura-destaque figcaption {
@@ -141,7 +144,7 @@ p {
 
 
 /* ========================================
-   HOME - BUSCA
+   HOME — BUSCA
    ======================================== */
 
 .busca {
@@ -175,7 +178,7 @@ p {
 
 
 /* ========================================
-   HOME - AVISO
+   HOME — AVISO
    ======================================== */
 
 .aviso {
@@ -188,7 +191,7 @@ p {
 
 
 /* ========================================
-   SAFRA - TABELA
+   SAFRA — TABELA
    ======================================== */
 
 .tabela-safra th,
@@ -207,7 +210,7 @@ p {
 
 
 /* ========================================
-   CADASTRO - GRUPOS PRINCIPAIS
+   CADASTRO — GRUPOS PRINCIPAIS
    ======================================== */
 
 .formulario-cadastro > fieldset {
@@ -219,7 +222,7 @@ p {
 
 
 /* ========================================
-   CADASTRO - GRUPO "COMO ENTREGA"
+   CADASTRO — GRUPO COMO ENTREGA
    ======================================== */
 
 .formulario-cadastro > fieldset > fieldset {
@@ -229,7 +232,7 @@ p {
 
 
 /* ========================================
-   CADASTRO - LEGENDAS
+   CADASTRO — LEGENDAS
    ======================================== */
 
 .formulario-cadastro legend {
@@ -239,7 +242,7 @@ p {
 
 
 /* ========================================
-   CADASTRO - CAMPOS
+   CADASTRO — CAMPOS
    ======================================== */
 
 .formulario-cadastro input[type="text"],
@@ -257,7 +260,7 @@ p {
 
 
 /* ========================================
-   SOBRE - CITAÇÃO
+   SOBRE — CITAÇÃO
    ======================================== */
 
 blockquote {
@@ -267,7 +270,7 @@ blockquote {
 
 
 /* ========================================
-   SOBRE - GLOSSÁRIO
+   SOBRE — GLOSSÁRIO
    ======================================== */
 
 dt {
@@ -276,7 +279,7 @@ dt {
 
 
 /* ========================================
-   SOBRE - PERGUNTAS FREQUENTES
+   SOBRE — PERGUNTAS FREQUENTES
    ======================================== */
 
 .pergunta {
@@ -285,6 +288,37 @@ dt {
     padding: var(--espaco-2);
     margin-bottom: var(--espaco-1);
     max-width: 70ch;
+}
+
+
+/* ========================================
+   ACESSIBILIDADE — LINK PULAR
+   ======================================== */
+
+.pular {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.pular:focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: var(--espaco-2);
+    overflow: visible;
+    clip-path: none;
+    z-index: 10;
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
 }
 
 
@@ -298,38 +332,38 @@ dt {
    PASSO 3 — GRADE DOS PRODUTOS
    ======================================== */
 
-/* Grade automática de produtos */
-main .lista-produtos {
+/* Grade automática no catálogo */
+.pagina-catalogo main .lista-produtos {
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
-        minmax(12rem, 1fr)
+        minmax(min(100%, 12rem), 1fr)
     );
     gap: var(--espaco-3);
 }
 
 /* Produto em destaque ocupa toda a linha */
-main .lista-produtos > .destaque {
+.pagina-catalogo main .lista-produtos > .destaque {
     grid-column: 1 / -1;
 }
 
-/* Cartões ocupam toda a coluna */
-.lista-produtos > .cartao-produto {
+/* Cartões ocupam o espaço disponível */
+.pagina-catalogo .lista-produtos > .cartao-produto {
     width: 100%;
     max-width: none;
     min-width: 0;
     margin-bottom: 0;
 }
 
-/* Lista da barra lateral */
-aside .lista-produtos {
+/* Produtos da barra lateral em uma coluna */
+.pagina-catalogo aside .lista-produtos {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: var(--espaco-3);
 }
 
 /* Imagens dos cartões */
-.cartao-produto img {
+.pagina-catalogo .cartao-produto img {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -337,27 +371,27 @@ aside .lista-produtos {
     border-radius: var(--raio);
 }
 
-/* Título dos produtos */
-.cartao-produto h3 {
+/* Espaçamento dos títulos */
+.pagina-catalogo .cartao-produto h3 {
     margin-top: var(--espaco-1);
 }
 
-/* Nome do produtor */
-.cartao-produto .produtor {
+/* Informações do produtor */
+.pagina-catalogo .cartao-produto .produtor {
     color: var(--cor-texto-suave);
 }
 
-/* Preço em destaque */
-.cartao-produto .preco {
+/* Preços em destaque */
+.pagina-catalogo .cartao-produto .preco {
     font-weight: bold;
 }
 
 
 /* ========================================
-   PASSO 4 — CASCA MOBILE-FIRST
+   PASSO 4 — LAYOUT MOBILE-FIRST
    ======================================== */
 
-/* Estrutura para telas pequenas */
+/* Estrutura inicial: uma coluna */
 .pagina-catalogo {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -402,7 +436,7 @@ aside .lista-produtos {
     grid-area: rodape;
 }
 
-/* Menu principal sem marcadores */
+/* Menu sem marcadores */
 .pagina-catalogo > nav .menu {
     list-style: none;
     padding: 0;
@@ -415,14 +449,29 @@ aside .lista-produtos {
     overflow-wrap: anywhere;
 }
 
-/* Layout para telas maiores */
-@media (min-width: 52rem) {
+/* Reduz o espaço antes do título principal */
+.pagina-catalogo main > h2:first-child {
+    margin-top: 0;
+}
+
+/* Alinha conteúdo e lateral no início */
+.pagina-catalogo > main,
+.pagina-catalogo > aside {
+    align-self: start;
+}
+
+
+/* ========================================
+   LAYOUT DESKTOP — TRÊS COLUNAS
+   ======================================== */
+
+@media (min-width: 60rem) {
 
     .pagina-catalogo {
         grid-template-columns:
             9rem
             minmax(0, 1fr)
-            11rem;
+            16rem;
 
         grid-template-areas:
             "cabecalho cabecalho cabecalho"
@@ -434,10 +483,25 @@ aside .lista-produtos {
 
 
 /* ========================================
+   AJUSTES DA BARRA LATERAL
+   ======================================== */
+
+/* Evita que os cartões ultrapassem a coluna */
+.pagina-catalogo .lateral .cartao-produto {
+    min-width: 0;
+}
+
+/* Permite quebra de palavras longas */
+.pagina-catalogo .lateral .cartao-produto h3 {
+    overflow-wrap: break-word;
+}
+
+
+/* ========================================
    PASSO 5 — BARRA DE CATEGORIAS
    ======================================== */
 
-/* Botões organizados com Flexbox */
+/* Categorias organizadas com Flexbox */
 .barra-categorias {
     display: flex;
     flex-wrap: wrap;
@@ -461,18 +525,18 @@ aside .lista-produtos {
    ======================================== */
 
 /* Cada cartão é um contêiner */
-.cartao-produto {
+.pagina-catalogo .cartao-produto {
     container-type: inline-size;
 }
 
 /*
-Container query — coloca a imagem ao lado
-das informações quando o cartão tem
-largura suficiente.
+Container query — quando um cartão tem
+largura suficiente, a imagem fica à esquerda
+e as informações ficam à direita.
 */
 @container (min-width: 30rem) {
 
-    .cartao-produto article {
+    .pagina-catalogo .cartao-produto article {
         display: grid;
 
         grid-template-columns:
@@ -484,23 +548,23 @@ largura suficiente.
     }
 
     /* Imagem na coluna esquerda */
-    .cartao-produto article > img {
+    .pagina-catalogo .cartao-produto article > img {
         grid-column: 1;
         grid-row: 1 / span 4;
         margin: 0;
     }
 
     /* Informações na coluna direita */
-    .cartao-produto article > h3,
-    .cartao-produto article > .produtor,
-    .cartao-produto article > .preco,
-    .cartao-produto article > button {
+    .pagina-catalogo .cartao-produto article > h3,
+    .pagina-catalogo .cartao-produto article > .produtor,
+    .pagina-catalogo .cartao-produto article > .preco,
+    .pagina-catalogo .cartao-produto article > button {
         grid-column: 2;
         min-width: 0;
     }
 
-    /* Título sem margem superior */
-    .cartao-produto article > h3 {
+    /* Remove margem superior do título */
+    .pagina-catalogo .cartao-produto article > h3 {
         margin-top: 0;
     }
 
