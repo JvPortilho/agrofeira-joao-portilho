@@ -1,4 +1,5 @@
-/* estilo.css — AgroFeira, encontro 3 */
+
+/* estilo.css — AgroFeira, encontros 3 e 4 */
 
 
 /* ========================================
@@ -161,12 +162,15 @@ p {
    ======================================== */
 
 .busca button,
-.formulario-cadastro button {
+.formulario-cadastro button,
+.barra-categorias button,
+.cartao-produto button {
     background-color: var(--cor-marca);
     color: var(--cor-sobre-marca);
     border: 0;
     border-radius: var(--raio);
     padding: 0.5em 1em;
+    cursor: pointer;
 }
 
 
@@ -281,4 +285,223 @@ dt {
     padding: var(--espaco-2);
     margin-bottom: var(--espaco-1);
     max-width: 70ch;
+}
+
+
+/* ========================================
+   ATIVIDADE 04 — PARTE A
+   CATÁLOGO RESPONSIVO
+   ======================================== */
+
+
+/* ========================================
+   PASSO 3 — GRADE DOS PRODUTOS
+   ======================================== */
+
+/* Grade automática de produtos */
+main .lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(12rem, 1fr)
+    );
+    gap: var(--espaco-3);
+}
+
+/* Produto em destaque ocupa toda a linha */
+main .lista-produtos > .destaque {
+    grid-column: 1 / -1;
+}
+
+/* Cartões ocupam toda a coluna */
+.lista-produtos > .cartao-produto {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+/* Lista da barra lateral */
+aside .lista-produtos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espaco-3);
+}
+
+/* Imagens dos cartões */
+.cartao-produto img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--raio);
+}
+
+/* Título dos produtos */
+.cartao-produto h3 {
+    margin-top: var(--espaco-1);
+}
+
+/* Nome do produtor */
+.cartao-produto .produtor {
+    color: var(--cor-texto-suave);
+}
+
+/* Preço em destaque */
+.cartao-produto .preco {
+    font-weight: bold;
+}
+
+
+/* ========================================
+   PASSO 4 — CASCA MOBILE-FIRST
+   ======================================== */
+
+/* Estrutura para telas pequenas */
+.pagina-catalogo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+        "cabecalho"
+        "menu"
+        "conteudo"
+        "lateral"
+        "rodape";
+
+    gap: var(--espaco-3);
+}
+
+/* Cabeçalho */
+.pagina-catalogo > .cabecalho-site {
+    grid-area: cabecalho;
+}
+
+/* Menu principal */
+.pagina-catalogo > nav {
+    grid-area: menu;
+    background-color: var(--cor-marca);
+    padding: var(--espaco-3);
+    min-width: 0;
+}
+
+/* Conteúdo principal */
+.pagina-catalogo > main {
+    grid-area: conteudo;
+    min-width: 0;
+}
+
+/* Barra lateral */
+.pagina-catalogo > .lateral {
+    grid-area: lateral;
+    min-width: 0;
+}
+
+/* Rodapé */
+.pagina-catalogo > .rodape-site {
+    grid-area: rodape;
+}
+
+/* Menu principal sem marcadores */
+.pagina-catalogo > nav .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Links do menu */
+.pagina-catalogo > nav .menu a {
+    color: var(--cor-sobre-marca);
+    overflow-wrap: anywhere;
+}
+
+/* Layout para telas maiores */
+@media (min-width: 52rem) {
+
+    .pagina-catalogo {
+        grid-template-columns:
+            9rem
+            minmax(0, 1fr)
+            11rem;
+
+        grid-template-areas:
+            "cabecalho cabecalho cabecalho"
+            "menu conteudo lateral"
+            "rodape rodape rodape";
+    }
+
+}
+
+
+/* ========================================
+   PASSO 5 — BARRA DE CATEGORIAS
+   ======================================== */
+
+/* Botões organizados com Flexbox */
+.barra-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--espaco-3);
+}
+
+/* Botões adaptáveis */
+.barra-categorias button {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   PASSO 6 — CONTAINER QUERY
+   ======================================== */
+
+/* Cada cartão é um contêiner */
+.cartao-produto {
+    container-type: inline-size;
+}
+
+/*
+Container query — coloca a imagem ao lado
+das informações quando o cartão tem
+largura suficiente.
+*/
+@container (min-width: 30rem) {
+
+    .cartao-produto article {
+        display: grid;
+
+        grid-template-columns:
+            10rem
+            minmax(0, 1fr);
+
+        column-gap: var(--espaco-3);
+        align-items: start;
+    }
+
+    /* Imagem na coluna esquerda */
+    .cartao-produto article > img {
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        margin: 0;
+    }
+
+    /* Informações na coluna direita */
+    .cartao-produto article > h3,
+    .cartao-produto article > .produtor,
+    .cartao-produto article > .preco,
+    .cartao-produto article > button {
+        grid-column: 2;
+        min-width: 0;
+    }
+
+    /* Título sem margem superior */
+    .cartao-produto article > h3 {
+        margin-top: 0;
+    }
+
 }
