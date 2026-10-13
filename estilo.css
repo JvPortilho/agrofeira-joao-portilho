@@ -2,6 +2,7 @@
 /* ========================================
    ESTILO.CSS — AGROFEIRA
    ATIVIDADES 03 E 04
+   ATUALIZADO ATÉ O PASSO 9 DA PARTE B
    ======================================== */
 
 
@@ -247,8 +248,15 @@ dt {
 
 
 /* ========================================
-   13. ACESSIBILIDADE — LINK PULAR
+   13. ACESSIBILIDADE — PASSO 9
+   LINK PULAR PARA O CONTEÚDO
    ======================================== */
+
+/*
+   Esconde o link visualmente, mas mantém
+   sua disponibilidade para leitores de
+   tela e navegação por teclado.
+*/
 
 .pular {
     position: absolute;
@@ -261,19 +269,40 @@ dt {
     white-space: nowrap;
 }
 
+/*
+   Mostra o link quando recebe foco.
+*/
+
 .pular:focus {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--espaco-2);
+    left: var(--espaco-2);
+
     width: auto;
     height: auto;
     margin: 0;
     padding: var(--espaco-2);
+
     overflow: visible;
     clip-path: none;
-    z-index: 10;
+
+    z-index: 100;
+
     background-color: var(--cor-marca);
     color: var(--cor-sobre-marca);
+
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+/*
+   Contorno visível para navegação
+   por teclado.
+*/
+
+.pular:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
 }
 
 
@@ -291,7 +320,7 @@ dt {
     gap: var(--espaco-3);
 }
 
-/* O produto em destaque ocupa toda a linha */
+/* Produto em destaque ocupa toda a linha */
 
 .pagina-catalogo main .lista-produtos > .destaque {
     grid-column: 1 / -1;
@@ -471,9 +500,8 @@ dt {
 }
 
 /*
-   Quando o cartão possui largura
-   mínima de 30rem, a imagem fica
-   ao lado das informações.
+   Em cartões com pelo menos 30rem,
+   a imagem fica ao lado das informações.
 */
 
 @container (min-width: 30rem) {
@@ -513,7 +541,7 @@ dt {
    20. PASSO 7 — HOVER E FOCUS-VISIBLE
    ======================================== */
 
-/* Botões escurecem ao passar o mouse */
+/* Escurece botões ao passar o mouse */
 
 .busca button:hover,
 .formulario-cadastro button:hover,
@@ -522,22 +550,16 @@ dt {
     background-color: var(--cor-marca-forte);
 }
 
-/* Foco visível para navegação por teclado */
+/* Contorno de foco para navegação por teclado */
 
 :focus-visible {
     outline: 3px solid var(--cor-foco);
     outline-offset: 3px;
 }
 
-/* Foco nos links do menu */
+/* Contorno claro nos links do menu */
 
 .menu a:focus-visible {
-    outline-color: var(--cor-sobre-marca);
-}
-
-/* Foco no link de pular */
-
-.pular:focus-visible {
     outline-color: var(--cor-sobre-marca);
 }
 
@@ -546,14 +568,14 @@ dt {
    21. PASSO 8 — PSEUDOCLASSE :has()
    ======================================== */
 
-/* Destaca o cartão ao focar o botão */
+/* Destaca o cartão quando o botão recebe foco */
 
 .pagina-catalogo .cartao-produto:has(button:focus-visible) {
     border-color: var(--cor-foco);
     box-shadow: 0 0 0 3px var(--cor-foco);
 }
 
-/* Destaca a borda ao passar o mouse */
+/* Altera a borda ao passar o mouse */
 
 .pagina-catalogo .cartao-produto:hover {
     border-color: var(--cor-marca-forte);
@@ -561,13 +583,10 @@ dt {
 
 
 /* ========================================
-   22. PADRONIZAÇÃO DOS BOTÕES DO CATÁLOGO
+   22. PADRONIZAÇÃO DOS BOTÕES
    ======================================== */
 
-/*
-   Todos os botões Adicionar possuem
-   a mesma altura, largura e tipografia.
-*/
+/* Botões Adicionar com dimensões uniformes */
 
 .pagina-catalogo .cartao-produto button {
     display: block;
@@ -586,11 +605,7 @@ dt {
    23. ALINHAMENTO DOS CARTÕES
    ======================================== */
 
-/*
-   O conteúdo do cartão fica organizado
-   verticalmente e o botão permanece
-   na parte inferior.
-*/
+/* Conteúdo organizado verticalmente */
 
 .pagina-catalogo .cartao-produto article {
     display: flex;
@@ -599,13 +614,13 @@ dt {
     gap: var(--espaco-1);
 }
 
-/* Botão alinhado na parte inferior */
+/* Botão posicionado na parte inferior */
 
 .pagina-catalogo .cartao-produto article > button {
     margin-top: auto;
 }
 
-/* Cartões da grade com altura uniforme */
+/* Altura uniforme nos cartões da grade */
 
 .pagina-catalogo main .lista-produtos > .cartao-produto {
     height: 100%;
@@ -615,8 +630,6 @@ dt {
 /* ========================================
    24. CARTÃO EM DESTAQUE
    ======================================== */
-
-/* Limita a largura do botão em destaque */
 
 .pagina-catalogo .cartao-produto.destaque button {
     max-width: 12rem;
@@ -628,9 +641,8 @@ dt {
    ======================================== */
 
 /*
-   Mantém o layout horizontal dos
-   cartões largos, mesmo após a
-   padronização dos botões.
+   Mantém o layout horizontal em cartões
+   largos após padronizar os botões.
 */
 
 @container (min-width: 30rem) {
