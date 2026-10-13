@@ -317,8 +317,8 @@ dt {
     overflow: visible;
     clip-path: none;
     z-index: 10;
-    background-color: var(--cor-superficie);
-    color: var(--cor-texto);
+    background-color: var(--cor-marca);
+    color: var(--cor-sobre-marca);
 }
 
 
@@ -332,7 +332,6 @@ dt {
    PASSO 3 — GRADE DOS PRODUTOS
    ======================================== */
 
-/* Grade automática no catálogo */
 .pagina-catalogo main .lista-produtos {
     display: grid;
     grid-template-columns: repeat(
@@ -342,12 +341,10 @@ dt {
     gap: var(--espaco-3);
 }
 
-/* Produto em destaque ocupa toda a linha */
 .pagina-catalogo main .lista-produtos > .destaque {
     grid-column: 1 / -1;
 }
 
-/* Cartões ocupam o espaço disponível */
 .pagina-catalogo .lista-produtos > .cartao-produto {
     width: 100%;
     max-width: none;
@@ -355,14 +352,12 @@ dt {
     margin-bottom: 0;
 }
 
-/* Produtos da barra lateral em uma coluna */
 .pagina-catalogo aside .lista-produtos {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: var(--espaco-3);
 }
 
-/* Imagens dos cartões */
 .pagina-catalogo .cartao-produto img {
     display: block;
     width: 100%;
@@ -371,17 +366,14 @@ dt {
     border-radius: var(--raio);
 }
 
-/* Espaçamento dos títulos */
 .pagina-catalogo .cartao-produto h3 {
     margin-top: var(--espaco-1);
 }
 
-/* Informações do produtor */
 .pagina-catalogo .cartao-produto .produtor {
     color: var(--cor-texto-suave);
 }
 
-/* Preços em destaque */
 .pagina-catalogo .cartao-produto .preco {
     font-weight: bold;
 }
@@ -391,7 +383,6 @@ dt {
    PASSO 4 — LAYOUT MOBILE-FIRST
    ======================================== */
 
-/* Estrutura inicial: uma coluna */
 .pagina-catalogo {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -406,12 +397,10 @@ dt {
     gap: var(--espaco-3);
 }
 
-/* Cabeçalho */
 .pagina-catalogo > .cabecalho-site {
     grid-area: cabecalho;
 }
 
-/* Menu principal */
 .pagina-catalogo > nav {
     grid-area: menu;
     background-color: var(--cor-marca);
@@ -419,42 +408,35 @@ dt {
     min-width: 0;
 }
 
-/* Conteúdo principal */
 .pagina-catalogo > main {
     grid-area: conteudo;
     min-width: 0;
 }
 
-/* Barra lateral */
 .pagina-catalogo > .lateral {
     grid-area: lateral;
     min-width: 0;
 }
 
-/* Rodapé */
 .pagina-catalogo > .rodape-site {
     grid-area: rodape;
 }
 
-/* Menu sem marcadores */
 .pagina-catalogo > nav .menu {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Links do menu */
 .pagina-catalogo > nav .menu a {
     color: var(--cor-sobre-marca);
     overflow-wrap: anywhere;
 }
 
-/* Reduz o espaço antes do título principal */
 .pagina-catalogo main > h2:first-child {
     margin-top: 0;
 }
 
-/* Alinha conteúdo e lateral no início */
 .pagina-catalogo > main,
 .pagina-catalogo > aside {
     align-self: start;
@@ -486,12 +468,10 @@ dt {
    AJUSTES DA BARRA LATERAL
    ======================================== */
 
-/* Evita que os cartões ultrapassem a coluna */
 .pagina-catalogo .lateral .cartao-produto {
     min-width: 0;
 }
 
-/* Permite quebra de palavras longas */
 .pagina-catalogo .lateral .cartao-produto h3 {
     overflow-wrap: break-word;
 }
@@ -501,18 +481,15 @@ dt {
    PASSO 5 — BARRA DE CATEGORIAS
    ======================================== */
 
-/* Categorias organizadas com Flexbox */
 .barra-categorias {
     display: flex;
     flex-wrap: wrap;
     gap: var(--espaco-2);
-
     list-style: none;
     padding: 0;
     margin: 0 0 var(--espaco-3);
 }
 
-/* Botões adaptáveis */
 .barra-categorias button {
     max-width: 100%;
     white-space: normal;
@@ -524,37 +501,32 @@ dt {
    PASSO 6 — CONTAINER QUERY
    ======================================== */
 
-/* Cada cartão é um contêiner */
 .pagina-catalogo .cartao-produto {
     container-type: inline-size;
 }
 
 /*
-Container query — quando um cartão tem
-largura suficiente, a imagem fica à esquerda
-e as informações ficam à direita.
+Container query — coloca a imagem ao lado
+das informações quando o cartão possui
+largura suficiente.
 */
 @container (min-width: 30rem) {
 
     .pagina-catalogo .cartao-produto article {
         display: grid;
-
         grid-template-columns:
             10rem
             minmax(0, 1fr);
-
         column-gap: var(--espaco-3);
         align-items: start;
     }
 
-    /* Imagem na coluna esquerda */
     .pagina-catalogo .cartao-produto article > img {
         grid-column: 1;
         grid-row: 1 / span 4;
         margin: 0;
     }
 
-    /* Informações na coluna direita */
     .pagina-catalogo .cartao-produto article > h3,
     .pagina-catalogo .cartao-produto article > .produtor,
     .pagina-catalogo .cartao-produto article > .preco,
@@ -563,9 +535,43 @@ e as informações ficam à direita.
         min-width: 0;
     }
 
-    /* Remove margem superior do título */
     .pagina-catalogo .cartao-produto article > h3 {
         margin-top: 0;
     }
 
+    .pagina-catalogo .cartao-produto article > button {
+        justify-self: start;
+    }
+
 }
+
+
+/* ========================================
+   ATIVIDADE 04 — PARTE B
+   PASSO 7 — ESTADOS E FOCO
+   ======================================== */
+
+/* Efeito hover nos botões */
+.busca button:hover,
+.formulario-cadastro button:hover,
+.barra-categorias button:hover,
+.cartao-produto button:hover {
+    background-color: var(--cor-marca-forte);
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+/* Foco nos links sobre a faixa da marca */
+.menu a:focus-visible {
+    outline-color: var(--cor-sobre-marca);
+}
+
+/* Foco do link de pular */
+.pular:focus-visible {
+    outline-color: var(--cor-sobre-marca);
+}
+

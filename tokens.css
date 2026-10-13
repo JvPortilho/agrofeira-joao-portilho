@@ -1,6 +1,15 @@
+
+/* ========================================
+   TOKENS.CSS — AGROFEIRA
+   ATIVIDADES 03 E 04
+   ======================================== */
+
 :root {
 
-    /* CORES */
+    /* ========================================
+       CORES
+       ======================================== */
+
     --cor-fundo: #f4f7f2;
     --cor-superficie: #ffffff;
     --cor-texto: #242424;
@@ -9,28 +18,58 @@
     --cor-sobre-marca: #ffffff;
     --cor-borda: #b7b7b7;
 
-    /* FONTES */
+
+    /* ========================================
+       CORES DE INTERAÇÃO — ATIVIDADE 04
+       ======================================== */
+
+    /* Cor mais escura para o efeito hover */
+    --cor-marca-forte: #542307;
+
+    /* Cor do contorno de foco pelo teclado */
+    --cor-foco: #075985;
+
+
+    /* ========================================
+       FONTES
+       ======================================== */
+
     --fonte-texto: system-ui, sans-serif;
     --fonte-titulo: "Nunito", sans-serif;
 
-    /*
+
+    /* ========================================
        ESCALA TIPOGRÁFICA
        Multiplicador escolhido: 1.25
-    */
+       ======================================== */
+
     --tamanho-texto: 1rem;
     --tamanho-h3: 1.25rem;
     --tamanho-h2: 1.563rem;
     --tamanho-h1: 1.953rem;
 
-    /* ESPAÇAMENTOS */
+
+    /* ========================================
+       ESPAÇAMENTOS
+       ======================================== */
+
     --espaco-1: 0.5rem;
     --espaco-2: 1rem;
     --espaco-3: 1.5rem;
     --espaco-4: 2rem;
 
-    /* CANTOS */
+
+    /* ========================================
+       CANTOS ARREDONDADOS
+       ======================================== */
+
     --raio: 8px;
 
-    /* SOMBRA */
+
+    /* ========================================
+       SOMBRA
+       ======================================== */
+
     --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
+
 }
