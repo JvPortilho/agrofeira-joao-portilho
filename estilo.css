@@ -2,7 +2,7 @@
 /* ========================================
    ESTILO.CSS — AGROFEIRA
    ATIVIDADES 03 E 04
-   ATUALIZADO ATÉ O PASSO 9 DA PARTE B
+   ATUALIZADO ATÉ A PARTE B — PASSO 10
    ======================================== */
 
 
@@ -134,10 +134,18 @@ p {
 }
 
 .busca input {
+    color: var(--cor-texto);
     background-color: var(--cor-superficie);
     border: 1px solid var(--cor-borda);
     border-radius: var(--raio);
     padding: 0.5em;
+    font: inherit;
+    caret-color: var(--cor-texto);
+}
+
+.busca input::placeholder {
+    color: var(--cor-texto-suave);
+    opacity: 1;
 }
 
 
@@ -218,10 +226,12 @@ p {
 .formulario-cadastro input[type="date"],
 .formulario-cadastro select,
 .formulario-cadastro textarea {
+    color: var(--cor-texto);
     background-color: var(--cor-superficie);
     border: 1px solid var(--cor-borda);
     border-radius: var(--raio);
     padding: 0.5em;
+    font: inherit;
 }
 
 
@@ -252,12 +262,6 @@ dt {
    LINK PULAR PARA O CONTEÚDO
    ======================================== */
 
-/*
-   Esconde o link visualmente, mas mantém
-   sua disponibilidade para leitores de
-   tela e navegação por teclado.
-*/
-
 .pular {
     position: absolute;
     width: 1px;
@@ -269,36 +273,22 @@ dt {
     white-space: nowrap;
 }
 
-/*
-   Mostra o link quando recebe foco.
-*/
-
 .pular:focus {
     position: absolute;
     top: var(--espaco-2);
     left: var(--espaco-2);
-
     width: auto;
     height: auto;
     margin: 0;
     padding: var(--espaco-2);
-
     overflow: visible;
     clip-path: none;
-
     z-index: 100;
-
     background-color: var(--cor-marca);
     color: var(--cor-sobre-marca);
-
     border-radius: var(--raio);
     box-shadow: var(--sombra);
 }
-
-/*
-   Contorno visível para navegação
-   por teclado.
-*/
 
 .pular:focus-visible {
     outline: 3px solid var(--cor-foco);
@@ -307,7 +297,6 @@ dt {
 
 
 /* ========================================
-   ATIVIDADE 04 — PARTE A
    14. GRADE RESPONSIVA DOS PRODUTOS
    ======================================== */
 
@@ -320,13 +309,9 @@ dt {
     gap: var(--espaco-3);
 }
 
-/* Produto em destaque ocupa toda a linha */
-
 .pagina-catalogo main .lista-produtos > .destaque {
     grid-column: 1 / -1;
 }
-
-/* Cartões ocupam a largura das colunas */
 
 .pagina-catalogo .lista-produtos > .cartao-produto {
     width: 100%;
@@ -335,15 +320,11 @@ dt {
     margin-bottom: 0;
 }
 
-/* Lista da barra lateral */
-
 .pagina-catalogo aside .lista-produtos {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: var(--espaco-3);
 }
-
-/* Imagens responsivas */
 
 .pagina-catalogo .cartao-produto img {
     display: block;
@@ -352,8 +333,6 @@ dt {
     height: auto;
     border-radius: var(--raio);
 }
-
-/* Informações dos produtos */
 
 .pagina-catalogo .cartao-produto h3 {
     margin-top: var(--espaco-1);
@@ -375,14 +354,12 @@ dt {
 .pagina-catalogo {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-
     grid-template-areas:
         "cabecalho"
         "menu"
         "conteudo"
         "lateral"
         "rodape";
-
     gap: var(--espaco-3);
 }
 
@@ -443,7 +420,6 @@ dt {
             9rem
             minmax(0, 1fr)
             16rem;
-
         grid-template-areas:
             "cabecalho cabecalho cabecalho"
             "menu conteudo lateral"
@@ -467,7 +443,7 @@ dt {
 
 
 /* ========================================
-   18. BARRA DE CATEGORIAS — FLEXBOX
+   18. BARRA DE CATEGORIAS
    ======================================== */
 
 .barra-categorias {
@@ -499,10 +475,86 @@ dt {
     container-type: inline-size;
 }
 
-/*
-   Em cartões com pelo menos 30rem,
-   a imagem fica ao lado das informações.
-*/
+
+/* ========================================
+   20. PASSO 7 — HOVER E FOCUS-VISIBLE
+   ======================================== */
+
+.busca button:hover,
+.formulario-cadastro button:hover,
+.barra-categorias button:hover,
+.cartao-produto button:hover {
+    background-color: var(--cor-marca-forte);
+}
+
+:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+.menu a:focus-visible {
+    outline-color: var(--cor-sobre-marca);
+}
+
+
+/* ========================================
+   21. PASSO 8 — PSEUDOCLASSE :has()
+   ======================================== */
+
+.pagina-catalogo .cartao-produto:has(button:focus-visible) {
+    border-color: var(--cor-foco);
+    box-shadow: 0 0 0 3px var(--cor-foco);
+}
+
+.pagina-catalogo .cartao-produto:hover {
+    border-color: var(--cor-marca-forte);
+}
+
+
+/* ========================================
+   22. PADRONIZAÇÃO DOS BOTÕES
+   ======================================== */
+
+.pagina-catalogo .cartao-produto button {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font-family: var(--fonte-texto);
+    font-size: var(--tamanho-texto);
+    font-weight: 700;
+    text-align: center;
+    border-radius: var(--raio);
+}
+
+
+/* ========================================
+   23. ALINHAMENTO DOS CARTÕES
+   ======================================== */
+
+.pagina-catalogo .cartao-produto article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--espaco-1);
+}
+
+.pagina-catalogo .cartao-produto article > button {
+    margin-top: auto;
+}
+
+.pagina-catalogo main .lista-produtos > .cartao-produto {
+    height: 100%;
+}
+
+.pagina-catalogo .cartao-produto.destaque button {
+    max-width: 12rem;
+}
+
+
+/* ========================================
+   24. CONTAINER QUERY — CARTÕES LARGOS
+   ======================================== */
 
 @container (min-width: 30rem) {
 
@@ -511,6 +563,11 @@ dt {
         grid-template-columns:
             10rem
             minmax(0, 1fr);
+        grid-template-rows:
+            auto
+            auto
+            auto
+            1fr;
         column-gap: var(--espaco-3);
         align-items: start;
     }
@@ -533,138 +590,67 @@ dt {
         margin-top: 0;
     }
 
-}
-
-
-/* ========================================
-   ATIVIDADE 04 — PARTE B
-   20. PASSO 7 — HOVER E FOCUS-VISIBLE
-   ======================================== */
-
-/* Escurece botões ao passar o mouse */
-
-.busca button:hover,
-.formulario-cadastro button:hover,
-.barra-categorias button:hover,
-.cartao-produto button:hover {
-    background-color: var(--cor-marca-forte);
-}
-
-/* Contorno de foco para navegação por teclado */
-
-:focus-visible {
-    outline: 3px solid var(--cor-foco);
-    outline-offset: 3px;
-}
-
-/* Contorno claro nos links do menu */
-
-.menu a:focus-visible {
-    outline-color: var(--cor-sobre-marca);
-}
-
-
-/* ========================================
-   21. PASSO 8 — PSEUDOCLASSE :has()
-   ======================================== */
-
-/* Destaca o cartão quando o botão recebe foco */
-
-.pagina-catalogo .cartao-produto:has(button:focus-visible) {
-    border-color: var(--cor-foco);
-    box-shadow: 0 0 0 3px var(--cor-foco);
-}
-
-/* Altera a borda ao passar o mouse */
-
-.pagina-catalogo .cartao-produto:hover {
-    border-color: var(--cor-marca-forte);
-}
-
-
-/* ========================================
-   22. PADRONIZAÇÃO DOS BOTÕES
-   ======================================== */
-
-/* Botões Adicionar com dimensões uniformes */
-
-.pagina-catalogo .cartao-produto button {
-    display: block;
-    width: 100%;
-    min-height: 44px;
-    padding: 0.75rem 1rem;
-    font-family: var(--fonte-texto);
-    font-size: var(--tamanho-texto);
-    font-weight: 700;
-    text-align: center;
-    border-radius: var(--raio);
-}
-
-
-/* ========================================
-   23. ALINHAMENTO DOS CARTÕES
-   ======================================== */
-
-/* Conteúdo organizado verticalmente */
-
-.pagina-catalogo .cartao-produto article {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: var(--espaco-1);
-}
-
-/* Botão posicionado na parte inferior */
-
-.pagina-catalogo .cartao-produto article > button {
-    margin-top: auto;
-}
-
-/* Altura uniforme nos cartões da grade */
-
-.pagina-catalogo main .lista-produtos > .cartao-produto {
-    height: 100%;
-}
-
-
-/* ========================================
-   24. CARTÃO EM DESTAQUE
-   ======================================== */
-
-.pagina-catalogo .cartao-produto.destaque button {
-    max-width: 12rem;
-}
-
-
-/* ========================================
-   25. AJUSTE FINAL DA CONTAINER QUERY
-   ======================================== */
-
-/*
-   Mantém o layout horizontal em cartões
-   largos após padronizar os botões.
-*/
-
-@container (min-width: 30rem) {
-
-    .pagina-catalogo .cartao-produto article {
-        display: grid;
-        grid-template-columns:
-            10rem
-            minmax(0, 1fr);
-        grid-template-rows:
-            auto
-            auto
-            auto
-            1fr;
-        align-items: start;
-        column-gap: var(--espaco-3);
-    }
-
     .pagina-catalogo .cartao-produto article > button {
-        grid-column: 2;
         margin-top: 0;
         justify-self: start;
+    }
+
+}
+
+
+/* ========================================
+   25. PASSO 10 — TEMA ESCURO
+   CORREÇÕES DE CONTRASTE
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+
+    /* Links do conteúdo principal */
+
+    main a,
+    aside a {
+        color: #93c5fd;
+    }
+
+    main a:visited,
+    aside a:visited {
+        color: #c4b5fd;
+    }
+
+    main a:hover,
+    aside a:hover {
+        text-decoration-thickness: 2px;
+    }
+
+    /* Campo de pesquisa */
+
+    .busca input {
+        color: #ffffff;
+        background-color: #202b24;
+        border-color: #88958c;
+        caret-color: #ffffff;
+        -webkit-text-fill-color: #ffffff;
+    }
+
+    .busca input::placeholder {
+        color: #d1d5db;
+        opacity: 1;
+    }
+
+    /* Campos do formulário */
+
+    .formulario-cadastro input,
+    .formulario-cadastro select,
+    .formulario-cadastro textarea {
+        color: var(--cor-texto);
+        background-color: var(--cor-superficie);
+        caret-color: var(--cor-texto);
+    }
+
+    /* Legendas das imagens */
+
+    .figura-destaque figcaption {
+        color: var(--cor-texto-suave);
     }
 
 }
