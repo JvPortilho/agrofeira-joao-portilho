@@ -6,7 +6,7 @@
 
 
 /* ========================================
-   PÁGINA INTEIRA
+   ESTILOS GERAIS
    ======================================== */
 
 body {
@@ -15,11 +15,6 @@ body {
     font-family: var(--fonte-texto);
     font-size: var(--tamanho-texto);
 }
-
-
-/* ========================================
-   CONTEÚDO PRINCIPAL E RELACIONADO
-   ======================================== */
 
 main,
 aside {
@@ -80,7 +75,7 @@ p {
 
 
 /* ========================================
-   MENU
+   MENU PRINCIPAL
    ======================================== */
 
 .menu {
@@ -119,7 +114,7 @@ p {
 
 
 /* ========================================
-   CARTÕES DOS PRODUTOS
+   CARTÕES DE PRODUTOS
    ======================================== */
 
 .cartao-produto {
@@ -134,7 +129,7 @@ p {
 
 
 /* ========================================
-   HOME — FIGURA DE DESTAQUE
+   FIGURA DE DESTAQUE
    ======================================== */
 
 .figura-destaque figcaption {
@@ -144,7 +139,7 @@ p {
 
 
 /* ========================================
-   HOME — BUSCA
+   CAMPO DE BUSCA
    ======================================== */
 
 .busca {
@@ -178,7 +173,7 @@ p {
 
 
 /* ========================================
-   HOME — AVISO
+   AVISO
    ======================================== */
 
 .aviso {
@@ -191,7 +186,7 @@ p {
 
 
 /* ========================================
-   SAFRA — TABELA
+   TABELA DA SAFRA
    ======================================== */
 
 .tabela-safra th,
@@ -210,7 +205,7 @@ p {
 
 
 /* ========================================
-   CADASTRO — GRUPOS PRINCIPAIS
+   FORMULÁRIO DE CADASTRO
    ======================================== */
 
 .formulario-cadastro > fieldset {
@@ -220,30 +215,15 @@ p {
     margin-bottom: var(--espaco-2);
 }
 
-
-/* ========================================
-   CADASTRO — GRUPO COMO ENTREGA
-   ======================================== */
-
 .formulario-cadastro > fieldset > fieldset {
     border: 0;
     padding: 0;
 }
 
-
-/* ========================================
-   CADASTRO — LEGENDAS
-   ======================================== */
-
 .formulario-cadastro legend {
     color: var(--cor-marca);
     font-weight: bold;
 }
-
-
-/* ========================================
-   CADASTRO — CAMPOS
-   ======================================== */
 
 .formulario-cadastro input[type="text"],
 .formulario-cadastro input[type="email"],
@@ -260,7 +240,7 @@ p {
 
 
 /* ========================================
-   SOBRE — CITAÇÃO
+   PÁGINA SOBRE
    ======================================== */
 
 blockquote {
@@ -268,19 +248,9 @@ blockquote {
     padding-left: var(--espaco-3);
 }
 
-
-/* ========================================
-   SOBRE — GLOSSÁRIO
-   ======================================== */
-
 dt {
     font-weight: bold;
 }
-
-
-/* ========================================
-   SOBRE — PERGUNTAS FREQUENTES
-   ======================================== */
 
 .pergunta {
     border: 1px solid var(--cor-borda);
@@ -324,12 +294,7 @@ dt {
 
 /* ========================================
    ATIVIDADE 04 — PARTE A
-   CATÁLOGO RESPONSIVO
-   ======================================== */
-
-
-/* ========================================
-   PASSO 3 — GRADE DOS PRODUTOS
+   GRID RESPONSIVO
    ======================================== */
 
 .pagina-catalogo main .lista-produtos {
@@ -380,7 +345,7 @@ dt {
 
 
 /* ========================================
-   PASSO 4 — LAYOUT MOBILE-FIRST
+   LAYOUT MOBILE-FIRST
    ======================================== */
 
 .pagina-catalogo {
@@ -478,7 +443,7 @@ dt {
 
 
 /* ========================================
-   PASSO 5 — BARRA DE CATEGORIAS
+   BARRA DE CATEGORIAS — FLEXBOX
    ======================================== */
 
 .barra-categorias {
@@ -498,7 +463,7 @@ dt {
 
 
 /* ========================================
-   PASSO 6 — CONTAINER QUERY
+   CONTAINER QUERY
    ======================================== */
 
 .pagina-catalogo .cartao-produto {
@@ -506,10 +471,11 @@ dt {
 }
 
 /*
-Container query — coloca a imagem ao lado
-das informações quando o cartão possui
-largura suficiente.
+   Quando o cartão tiver largura mínima
+   de 30rem, a imagem fica ao lado
+   das informações do produto.
 */
+
 @container (min-width: 30rem) {
 
     .pagina-catalogo .cartao-produto article {
@@ -548,10 +514,11 @@ largura suficiente.
 
 /* ========================================
    ATIVIDADE 04 — PARTE B
-   PASSO 7 — ESTADOS E FOCO
+   PASSO 7 — HOVER E FOCUS-VISIBLE
    ======================================== */
 
-/* Efeito hover nos botões */
+/* Escurece os botões ao passar o mouse */
+
 .busca button:hover,
 .formulario-cadastro button:hover,
 .barra-categorias button:hover,
@@ -559,19 +526,48 @@ largura suficiente.
     background-color: var(--cor-marca-forte);
 }
 
-/* Foco visível para navegação por teclado */
+/* Destaca elementos ao navegar pelo teclado */
+
 :focus-visible {
     outline: 3px solid var(--cor-foco);
     outline-offset: 3px;
 }
 
-/* Foco nos links sobre a faixa da marca */
+/* Contorno claro nos links do menu */
+
 .menu a:focus-visible {
     outline-color: var(--cor-sobre-marca);
 }
 
-/* Foco do link de pular */
+/* Contorno claro no link de pular */
+
 .pular:focus-visible {
     outline-color: var(--cor-sobre-marca);
+}
+
+
+/* ========================================
+   ATIVIDADE 04 — PARTE B
+   PASSO 8 — PSEUDOCLASSE :has()
+   ======================================== */
+
+/*
+   Destaca o cartão inteiro quando
+   o botão Adicionar recebe foco
+   durante a navegação por teclado.
+*/
+
+.pagina-catalogo .cartao-produto:has(button:focus-visible) {
+    border-color: var(--cor-foco);
+    box-shadow: 0 0 0 3px var(--cor-foco);
+}
+
+/*
+   Altera a borda do cartão quando
+   o usuário passa o mouse sobre ele.
+*/
+
+.pagina-catalogo .cartao-produto:hover {
+    border-color: var(--cor-marca-forte);
 }
 
