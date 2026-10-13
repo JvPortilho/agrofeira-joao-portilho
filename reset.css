@@ -1,36 +1,75 @@
-/* reset.css — AgroFeira, encontro 3 */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+/* ========================================
+   RESET.CSS — AGROFEIRA
+   ATIVIDADES 03 E 04
+   PARTE C — PASSO 11
+   ORGANIZAÇÃO COM @layer
+   ======================================== */
 
-* {
-    margin: 0;
-}
 
-body {
-    line-height: 1.5;
-}
+/* ========================================
+   1. ORDEM DAS CAMADAS CSS
+   ======================================== */
 
-img,
-picture {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
+@layer reset, tokens, base, componentes, layout, estados;
 
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
 
-p,
-h1,
-h2,
-h3 {
-    overflow-wrap: break-word;
+/* ========================================
+   2. CAMADA RESET
+   ======================================== */
+
+@layer reset {
+
+    /* 1. Box-sizing universal */
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+
+    /* 2. Remoção das margens padrão */
+
+    * {
+        margin: 0;
+    }
+
+
+    /* 3. Altura de linha padrão */
+
+    body {
+        line-height: 1.5;
+    }
+
+
+    /* 4. Imagens responsivas */
+
+    img,
+    picture {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* 5. Herança da fonte nos formulários */
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+
+    /* 6. Quebra de palavras longas */
+
+    p,
+    h1,
+    h2,
+    h3 {
+        overflow-wrap: break-word;
+    }
+
 }

@@ -2,140 +2,112 @@
 /* ========================================
    TOKENS.CSS — AGROFEIRA
    ATIVIDADES 03 E 04
-   TEMA CLARO E TEMA ESCURO
+
+   PARTE C — PASSO 11
+   ORGANIZAÇÃO COM @layer
    ======================================== */
 
 
 /* ========================================
-   1. VARIÁVEIS GLOBAIS — TEMA CLARO
+   1. CAMADA DE VARIÁVEIS
    ======================================== */
 
-:root {
+@layer tokens {
 
     /* ========================================
-       CORES PRINCIPAIS
+       TEMA CLARO — PADRÃO
        ======================================== */
-
-    --cor-fundo: #f4f7f2;
-    --cor-superficie: #ffffff;
-
-    --cor-texto: #242424;
-    --cor-texto-suave: #595959;
-
-    --cor-marca: #78350f;
-    --cor-sobre-marca: #ffffff;
-
-    --cor-borda: #b7b7b7;
-
-
-    /* ========================================
-       CORES DE INTERAÇÃO
-       ======================================== */
-
-    /* Cor dos botões ao passar o mouse */
-    --cor-marca-forte: #542307;
-
-    /* Contorno para navegação por teclado */
-    --cor-foco: #075985;
-
-
-    /* ========================================
-       FONTES
-       ======================================== */
-
-    --fonte-texto: system-ui, sans-serif;
-    --fonte-titulo: "Nunito", sans-serif;
-
-
-    /* ========================================
-       ESCALA TIPOGRÁFICA
-       Multiplicador: 1.25
-       ======================================== */
-
-    --tamanho-texto: 1rem;
-    --tamanho-h3: 1.25rem;
-    --tamanho-h2: 1.563rem;
-    --tamanho-h1: 1.953rem;
-
-
-    /* ========================================
-       ESPAÇAMENTOS
-       ======================================== */
-
-    --espaco-1: 0.5rem;
-    --espaco-2: 1rem;
-    --espaco-3: 1.5rem;
-    --espaco-4: 2rem;
-
-
-    /* ========================================
-       CANTOS ARREDONDADOS
-       ======================================== */
-
-    --raio: 8px;
-
-
-    /* ========================================
-       SOMBRAS
-       ======================================== */
-
-    --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
-
-}
-
-
-/* ========================================
-   ATIVIDADE 04 — PARTE B
-   PASSO 10 — TEMA ESCURO AUTOMÁTICO
-   ======================================== */
-
-/*
-   O navegador identifica a preferência
-   de tema do sistema operacional.
-
-   Quando o modo escuro está ativado,
-   as variáveis de cores são substituídas.
-
-   Não é necessário alterar os arquivos
-   HTML nem utilizar JavaScript.
-*/
-
-@media (prefers-color-scheme: dark) {
 
     :root {
 
-        /* ========================================
-           CORES PRINCIPAIS — TEMA ESCURO
-           ======================================== */
+        /* CORES PRINCIPAIS */
 
-        --cor-fundo: #121a16;
-        --cor-superficie: #202b24;
+        --cor-fundo: #f4f7f2;
+        --cor-superficie: #ffffff;
 
-        --cor-texto: #f5f5f5;
-        --cor-texto-suave: #d1d5db;
+        --cor-texto: #242424;
+        --cor-texto-suave: #595959;
 
-        --cor-marca: #e9b88a;
-        --cor-sobre-marca: #17120e;
+        --cor-marca: #78350f;
+        --cor-sobre-marca: #ffffff;
 
-        --cor-borda: #88958c;
+        --cor-borda: #b7b7b7;
 
 
-        /* ========================================
-           CORES DE INTERAÇÃO — TEMA ESCURO
-           ======================================== */
+        /* CORES DE INTERAÇÃO */
 
-        /* Botões ao passar o mouse */
-        --cor-marca-forte: #f5cda8;
-
-        /* Contorno de foco */
-        --cor-foco: #7dd3fc;
+        --cor-marca-forte: #542307;
+        --cor-foco: #075985;
 
 
-        /* ========================================
-           SOMBRA — TEMA ESCURO
-           ======================================== */
+        /* FONTES */
 
-        --sombra: 0 2px 8px rgb(0 0 0 / 0.35);
+        --fonte-texto: system-ui, sans-serif;
+        --fonte-titulo: "Nunito", sans-serif;
+
+
+        /* ESCALA TIPOGRÁFICA */
+
+        --tamanho-texto: 1rem;
+        --tamanho-h3: 1.25rem;
+        --tamanho-h2: 1.563rem;
+        --tamanho-h1: 1.953rem;
+
+
+        /* ESPAÇAMENTOS */
+
+        --espaco-1: 0.5rem;
+        --espaco-2: 1rem;
+        --espaco-3: 1.5rem;
+        --espaco-4: 2rem;
+
+
+        /* BORDAS ARREDONDADAS */
+
+        --raio: 8px;
+
+
+        /* SOMBRAS */
+
+        --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
+
+    }
+
+
+    /* ========================================
+       2. TEMA ESCURO AUTOMÁTICO
+       PARTE B — PASSO 10
+       ======================================== */
+
+    @media (prefers-color-scheme: dark) {
+
+        :root {
+
+            /* CORES PRINCIPAIS */
+
+            --cor-fundo: #121a16;
+            --cor-superficie: #202b24;
+
+            --cor-texto: #f5f5f5;
+            --cor-texto-suave: #d1d5db;
+
+            --cor-marca: #e9b88a;
+            --cor-sobre-marca: #17120e;
+
+            --cor-borda: #88958c;
+
+
+            /* CORES DE INTERAÇÃO */
+
+            --cor-marca-forte: #f5cda8;
+            --cor-foco: #7dd3fc;
+
+
+            /* SOMBRA */
+
+            --sombra: 0 2px 8px rgb(0 0 0 / 0.35);
+
+        }
 
     }
 
