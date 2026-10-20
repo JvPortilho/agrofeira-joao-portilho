@@ -5,145 +5,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1">
 
-    <title>Comparativo de Desempenho — AgroFeira</title>
+    <title>Comparativo — AgroFeira</title>
 
     <style>
-        * {
+        :root {
+            --cor-fundo: #f4f7f2;
+            --cor-superficie: #ffffff;
+            --cor-texto: #242424;
+            --cor-suave: #595959;
+            --cor-marca: #78350f;
+            --cor-borda: #b7b7b7;
+        }
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f7f2;
-            color: #242424;
             line-height: 1.6;
+            background: var(--cor-fundo);
+            color: var(--cor-texto);
         }
 
-        header {
-            background-color: #78350f;
+        .pular {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: white;
+            color: var(--cor-marca);
+            padding: 12px;
+            z-index: 100;
+        }
+
+        .pular:focus {
+            left: 10px;
+            top: 10px;
+        }
+
+        .cabecalho-site {
+            background: var(--cor-marca);
             color: white;
-            padding: 25px 20px;
             text-align: center;
+            padding: 25px 15px;
         }
 
-        header h1 {
-            margin: 0 0 10px;
+        .cabecalho-site h1 {
+            margin: 0;
         }
 
-        nav a {
-            display: inline-block;
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+            padding: 15px 0 0;
+            margin: 0;
+        }
+
+        .menu a {
             color: white;
-            margin: 5px 10px;
-            padding: 5px;
+            text-decoration: underline;
+            padding: 6px;
         }
 
-        nav a:hover,
-        nav a:focus-visible {
-            background-color: #a85a2a;
-            border-radius: 4px;
+        .menu a:hover,
+        .menu a:focus-visible {
+            background: #a85a2a;
+            border-radius: 5px;
+        }
+
+        .menu a[aria-current="page"] {
+            font-weight: bold;
         }
 
         main {
             max-width: 1100px;
             margin: 30px auto;
-            padding: 25px;
-            background-color: white;
+            padding: 30px;
+            background: white;
             border-radius: 10px;
         }
 
-        h2 {
-            color: #78350f;
-            margin-top: 35px;
+        h2,
+        h3 {
+            color: var(--cor-marca);
         }
 
-        h3 {
-            color: #78350f;
+        h2 {
+            margin-top: 40px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         figure {
             margin: 25px 0;
             padding: 15px;
-            border: 1px solid #b7b7b7;
+            border: 1px solid var(--cor-borda);
             border-radius: 8px;
-            background-color: #fafafa;
+            background: #fafafa;
         }
 
         figure img {
             display: block;
             max-width: 100%;
             height: auto;
-            margin: 0 auto;
+            margin: auto;
             border-radius: 5px;
         }
 
         figcaption {
             margin-top: 12px;
-            color: #595959;
+            color: var(--cor-suave);
             font-size: 0.95rem;
         }
 
         .tabela-container {
-            width: 100%;
             overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
-            border: 1px solid #b7b7b7;
+            border: 1px solid var(--cor-borda);
             text-align: left;
         }
 
         th {
-            background-color: #78350f;
+            background: var(--cor-marca);
             color: white;
         }
 
         tr:nth-child(even) {
-            background-color: #f4f7f2;
+            background: var(--cor-fundo);
         }
 
         .observacao {
-            background-color: #fff3d6;
-            border-left: 5px solid #78350f;
             padding: 15px;
             margin: 20px 0;
+            border-left: 5px solid var(--cor-marca);
+            background: #fff3d6;
         }
 
         .botao {
             display: inline-block;
-            background-color: #78350f;
+            padding: 12px 18px;
+            margin: 8px 5px 8px 0;
+            background: var(--cor-marca);
             color: white;
-            padding: 12px 20px;
-            border-radius: 6px;
             text-decoration: none;
+            border-radius: 6px;
             font-weight: bold;
-            margin: 10px 5px 10px 0;
         }
 
         .botao:hover,
         .botao:focus-visible {
-            background-color: #a85a2a;
+            background: #a85a2a;
         }
 
         footer {
             text-align: center;
-            padding: 25px;
-            background-color: #78350f;
+            background: var(--cor-marca);
             color: white;
-            margin-top: 30px;
+            padding: 20px;
         }
 
         @media (max-width: 600px) {
@@ -152,12 +192,8 @@
                 padding: 15px;
             }
 
-            header {
-                padding: 20px 10px;
-            }
-
             figure {
-                padding: 10px;
+                padding: 8px;
             }
 
             h1 {
@@ -167,351 +203,410 @@
             h2 {
                 font-size: 1.3rem;
             }
+
+            .menu {
+                gap: 5px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>AgroFeira</h1>
+    <a class="pular" href="#conteudo">
+        Pular para o conteúdo
+    </a>
 
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
         <p>Comparativo de Responsividade e Desempenho</p>
 
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a>
-            <a href="catalogo.html">Catálogo CSS</a>
-            <a href="catalogo-bootstrap.html">
-                Catálogo Bootstrap
-            </a>
-            <a href="comparativo.html"
-               aria-current="page">
-                Comparativo
-            </a>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="catalogo.html">Catálogo</a>
+                </li>
+                <li>
+                    <a href="catalogo-bootstrap.html">
+                        Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="safra.html">Safra</a>
+                </li>
+                <li>
+                    <a href="cadastro-produtor.html">
+                        Cadastro de produtor
+                    </a>
+                </li>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
+                <li>
+                    <a href="comparativo.html"
+                       aria-current="page">
+                        Comparativo
+                    </a>
+                </li>
+            </ul>
         </nav>
     </header>
 
     <main id="conteudo">
 
-        <h2>1. Introdução</h2>
+        <section aria-labelledby="introducao">
+            <h2 id="introducao">1. Introdução</h2>
 
-        <p>
-            Este comparativo apresenta os testes
-            realizados no projeto AgroFeira, desenvolvido
-            para divulgar produtos de agricultores
-            e produtores da região de Paragominas.
-        </p>
+            <p>
+                Este comparativo apresenta os testes
+                realizados no projeto AgroFeira,
+                desenvolvido para divulgar produtos
+                de agricultores e produtores da
+                região de Paragominas.
+            </p>
 
-        <p>
-            O objetivo foi analisar o comportamento
-            responsivo do catálogo e comparar o
-            desempenho de duas implementações:
-            uma desenvolvida com CSS próprio e
-            outra utilizando o framework Bootstrap.
-        </p>
+            <p>
+                O objetivo foi avaliar a responsividade
+                do catálogo e comparar o desempenho
+                de duas versões: uma desenvolvida
+                com CSS próprio e outra utilizando
+                o framework Bootstrap.
+            </p>
+        </section>
 
-        <h2>2. Teste de responsividade em 360 px</h2>
+        <section aria-labelledby="responsividade">
+            <h2 id="responsividade">
+                2. Teste de responsividade em 360 px
+            </h2>
 
-        <p>
-            O primeiro teste foi realizado simulando
-            a largura de 360 pixels, semelhante à
-            tela de um smartphone.
-        </p>
+            <p>
+                O primeiro teste foi realizado em
+                uma largura de 360 pixels, simulando
+                a tela de um smartphone.
+                Foram observados o menu, os botões,
+                as imagens e a organização dos produtos.
+            </p>
 
-        <p>
-            Foi observado como os elementos do catálogo,
-            os botões, as imagens e o menu se adaptaram
-            ao espaço disponível.
-        </p>
+            <figure>
+                <img
+                    src="captura-1-360.png"
+                    alt="Catálogo AgroFeira em 360 pixels"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-1-360.png"
-                alt="Catálogo AgroFeira em uma tela de 360 pixels"
-                loading="lazy">
+                <figcaption>
+                    Figura 1 — Teste de responsividade
+                    em 360 pixels.
+                </figcaption>
+            </figure>
+        </section>
 
-            <figcaption>
-                Figura 1 — Teste de responsividade
-                do catálogo em 360 px.
-            </figcaption>
-        </figure>
+        <section aria-labelledby="antes">
+            <h2 id="antes">
+                3. Teste em 1200 px antes dos ajustes
+            </h2>
 
-        <h2>3. Teste em 1200 px antes dos ajustes</h2>
+            <p>
+                Nesta etapa foi analisada a organização
+                do catálogo em uma largura de
+                1200 pixels, antes das alterações
+                nas regras de estilo.
+            </p>
 
-        <p>
-            Nesta etapa foi analisada a apresentação
-            do catálogo em uma largura de 1200 pixels,
-            antes das alterações nas regras de estilo.
-        </p>
+            <figure>
+                <img
+                    src="captura-2-1200-antes-CONFERIR.png"
+                    alt="Layout do catálogo antes dos ajustes"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-2-1200-antes-CONFERIR.png"
-                alt="Catálogo em 1200 pixels antes dos ajustes"
-                loading="lazy">
+                <figcaption>
+                    Figura 2 — Catálogo em 1200 pixels
+                    antes dos ajustes.
+                </figcaption>
+            </figure>
+        </section>
 
-            <figcaption>
-                Figura 2 — Layout do catálogo em
-                1200 px antes dos ajustes.
-            </figcaption>
-        </figure>
+        <section aria-labelledby="ajustes">
+            <h2 id="ajustes">
+                4. Ajustes no CSS e resultado
+            </h2>
 
-        <h2>4. Ajustes no CSS e resultado</h2>
+            <p>
+                Foram analisadas as regras de estilo
+                aplicadas aos botões, considerando
+                a apresentação e o comportamento
+                dos elementos da página.
+            </p>
 
-        <p>
-            Foram analisadas as regras de estilo
-            relacionadas aos botões e à organização
-            dos elementos da página.
-        </p>
+            <figure>
+                <img
+                    src="captura3-regra-botao-CONFERIR.png"
+                    alt="Inspeção da regra CSS dos botões"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura3-regra-botao-CONFERIR.png"
-                alt="Inspeção da regra CSS dos botões"
-                loading="lazy">
+                <figcaption>
+                    Figura 3 — Análise da regra CSS
+                    aplicada aos botões.
+                </figcaption>
+            </figure>
 
-            <figcaption>
-                Figura 3 — Inspeção da regra de
-                estilo aplicada aos botões.
-            </figcaption>
-        </figure>
+            <p>
+                Após os ajustes, a página foi
+                novamente analisada em 1200 pixels
+                para comparar a organização visual.
+            </p>
 
-        <p>
-            Após os ajustes, foi realizado outro
-            teste na mesma largura de 1200 pixels
-            para observar o resultado visual.
-        </p>
+            <figure>
+                <img
+                    src="captura-4-1200-depois.png"
+                    alt="Catálogo após os ajustes em 1200 pixels"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-4-1200-depois.png"
-                alt="Catálogo em 1200 pixels depois dos ajustes"
-                loading="lazy">
+                <figcaption>
+                    Figura 4 — Resultado em 1200 pixels
+                    após os ajustes.
+                </figcaption>
+            </figure>
+        </section>
 
-            <figcaption>
-                Figura 4 — Layout em 1200 px
-                após os ajustes.
-            </figcaption>
-        </figure>
+        <section aria-labelledby="rede">
+            <h2 id="rede">5. Análise da rede</h2>
 
-        <h2>5. Análise da rede</h2>
+            <p>
+                Na aba Network do Chrome DevTools,
+                foram observados os arquivos carregados,
+                a quantidade de requisições e o volume
+                de dados transferidos pelas duas
+                versões do catálogo.
+            </p>
 
-        <p>
-            Na aba Network do Chrome DevTools,
-            foram observados os arquivos carregados,
-            a quantidade de requisições e o volume
-            de dados transferidos pelas duas versões
-            do catálogo.
-        </p>
+            <h3>Versão com CSS próprio</h3>
 
-        <h3>Versão com CSS próprio</h3>
+            <figure>
+                <img
+                    src="captura-5-rede-autoral.png"
+                    alt="Network do catálogo com CSS próprio"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-5-rede-autoral.png"
-                alt="Análise de rede do catálogo com CSS próprio"
-                loading="lazy">
+                <figcaption>
+                    Figura 5 — Análise de rede da
+                    versão com CSS próprio.
+                </figcaption>
+            </figure>
 
-            <figcaption>
-                Figura 5 — Análise de rede da
-                versão com CSS próprio.
-            </figcaption>
-        </figure>
+            <h3>Versão com Bootstrap</h3>
 
-        <h3>Versão com Bootstrap</h3>
+            <figure>
+                <img
+                    src="captura-6-rede-bootstrap.png"
+                    alt="Network do catálogo Bootstrap"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-6-rede-bootstrap.png"
-                alt="Análise de rede do catálogo Bootstrap"
-                loading="lazy">
+                <figcaption>
+                    Figura 6 — Análise de rede da
+                    versão Bootstrap.
+                </figcaption>
+            </figure>
 
-            <figcaption>
-                Figura 6 — Análise de rede da
-                versão Bootstrap.
-            </figcaption>
-        </figure>
+            <p>
+                Os testes mostram os recursos
+                utilizados pelas duas implementações.
+                A versão com CSS próprio utiliza
+                arquivos desenvolvidos para o projeto,
+                enquanto a versão Bootstrap também
+                carrega recursos do framework.
+            </p>
+        </section>
 
-        <p>
-            A comparação permite observar que
-            as duas versões carregam os recursos
-            necessários para apresentar o catálogo.
-            A versão Bootstrap também utiliza
-            arquivos do framework, enquanto a
-            versão autoral utiliza os estilos
-            desenvolvidos especificamente para
-            o projeto.
-        </p>
+        <section aria-labelledby="lcp">
+            <h2 id="lcp">6. Análise do LCP</h2>
 
-        <h2>6. Análise do LCP</h2>
+            <p>
+                O Largest Contentful Paint (LCP)
+                mede quanto tempo o maior elemento
+                de conteúdo visível da página leva
+                para ser renderizado.
+            </p>
 
-        <p>
-            O Largest Contentful Paint (LCP) mede
-            o tempo necessário para renderizar o
-            maior elemento de conteúdo visível
-            da página.
-        </p>
+            <p>
+                As medições foram realizadas
+                utilizando a aba Performance
+                do Chrome DevTools.
+            </p>
 
-        <p>
-            Foram realizadas medições utilizando
-            a aba Performance do Chrome DevTools.
-        </p>
+            <h3>LCP — CSS próprio</h3>
 
-        <h3>LCP — CSS próprio</h3>
+            <figure>
+                <img
+                    src="captura-7-lcp-autoral.png"
+                    alt="Medição LCP da versão CSS próprio"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-7-lcp-autoral.png"
-                alt="Medição LCP da versão com CSS próprio"
-                loading="lazy">
+                <figcaption>
+                    Figura 7 — Análise do LCP
+                    da versão com CSS próprio.
+                </figcaption>
+            </figure>
 
-            <figcaption>
-                Figura 7 — Análise de LCP
-                da versão com CSS próprio.
-            </figcaption>
-        </figure>
+            <h3>LCP — Bootstrap</h3>
 
-        <h3>LCP — Bootstrap</h3>
+            <figure>
+                <img
+                    src="captura-8-lcp-bootstrap.png"
+                    alt="Medição LCP da versão Bootstrap"
+                    loading="lazy">
 
-        <figure>
-            <img
-                src="captura-8-lcp-bootstrap.png"
-                alt="Medição LCP da versão Bootstrap"
-                loading="lazy">
+                <figcaption>
+                    Figura 8 — Análise do LCP
+                    da versão Bootstrap.
+                </figcaption>
+            </figure>
+        </section>
 
-            <figcaption>
-                Figura 8 — Análise de LCP
-                da versão Bootstrap.
-            </figcaption>
-        </figure>
+        <section aria-labelledby="resultados">
+            <h2 id="resultados">
+                7. Comparação dos resultados
+            </h2>
 
-        <h2>7. Comparação dos resultados</h2>
+            <p>
+                A tabela apresenta resultados
+                observados em capturas específicas
+                dos testes realizados.
+            </p>
 
-        <p>
-            A tabela apresenta alguns resultados
-            observados nas capturas de tela dos
-            testes de desempenho.
-        </p>
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Indicador</th>
+                            <th scope="col">CSS próprio</th>
+                            <th scope="col">Bootstrap</th>
+                        </tr>
+                    </thead>
 
-        <div class="tabela-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Indicador</th>
-                        <th>CSS próprio</th>
-                        <th>Bootstrap</th>
-                    </tr>
-                </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Requisições</th>
+                            <td>13</td>
+                            <td>11</td>
+                        </tr>
 
-                <tbody>
-                    <tr>
-                        <td>Requisições de rede</td>
-                        <td>13</td>
-                        <td>11</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">
+                                Dados transferidos
+                            </th>
+                            <td>434 kB</td>
+                            <td>426 kB</td>
+                        </tr>
 
-                    <tr>
-                        <td>Dados transferidos</td>
-                        <td>434 kB</td>
-                        <td>426 kB</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">
+                                Tempo de carregamento
+                            </th>
+                            <td>432 ms</td>
+                            <td>370 ms</td>
+                        </tr>
 
-                    <tr>
-                        <td>Tempo de carregamento</td>
-                        <td>432 ms</td>
-                        <td>370 ms</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">CLS</th>
+                            <td>0,00</td>
+                            <td>0</td>
+                        </tr>
 
-                    <tr>
-                        <td>CLS</td>
-                        <td>0,00</td>
-                        <td>0</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">LCP observado</th>
+                            <td>0,15 s</td>
+                            <td>0,11 s</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                    <tr>
-                        <td>LCP observado</td>
-                        <td>0,15 s</td>
-                        <td>0,11 s</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <div class="observacao">
+                <strong>Observação:</strong>
+                Os resultados correspondem a medições
+                específicas e podem variar conforme
+                o navegador, a conexão, o cache e
+                as condições de execução.
+                Os dados de rede e LCP não são
+                necessariamente da mesma execução.
+            </div>
+        </section>
 
-        <div class="observacao">
-            <strong>Observação:</strong>
-            Os valores apresentados correspondem
-            a medições específicas registradas
-            durante os testes. Os resultados podem
-            variar conforme o cache, a conexão,
-            o dispositivo e as condições de execução.
-            Os valores de rede e LCP não representam
-            necessariamente a mesma execução.
-        </div>
+        <section aria-labelledby="conclusao">
+            <h2 id="conclusao">8. Conclusão</h2>
 
-        <h2>8. Conclusão</h2>
+            <p>
+                Os testes realizados no projeto
+                AgroFeira permitiram compreender
+                melhor a importância da responsividade
+                e da análise de desempenho em
+                aplicações web.
+            </p>
 
-        <p>
-            A realização dos testes permitiu
-            compreender melhor como diferentes
-            formas de estilização podem influenciar
-            a organização visual e o desempenho
-            de uma página web.
-        </p>
+            <p>
+                A versão desenvolvida com CSS próprio
+                oferece maior controle sobre os estilos
+                e a identidade visual do projeto.
+                Já o Bootstrap facilita a organização
+                da interface por meio de componentes
+                e classes prontas.
+            </p>
 
-        <p>
-            O catálogo desenvolvido com CSS próprio
-            oferece maior controle sobre a identidade
-            visual e as regras de responsividade.
-            Já a versão Bootstrap facilita a
-            construção de componentes e a organização
-            do layout por meio de classes prontas.
-        </p>
+            <p>
+                Nas medições selecionadas, a versão
+                Bootstrap apresentou valores menores
+                de transferência de dados, tempo de
+                carregamento e LCP. Entretanto,
+                os resultados isolados não permitem
+                afirmar que uma tecnologia será
+                sempre mais rápida que a outra.
+            </p>
 
-        <p>
-            Nas medições selecionadas, a versão
-            Bootstrap apresentou valores menores
-            de dados transferidos, tempo de
-            carregamento e LCP. Entretanto, esses
-            resultados isolados não são suficientes
-            para afirmar que uma abordagem será
-            sempre mais rápida do que a outra.
-        </p>
+            <p>
+                A atividade contribuiu para o
+                aprendizado sobre desenvolvimento
+                responsivo, inspeção de elementos,
+                análise de rede e métricas de
+                desempenho utilizando o navegador.
+            </p>
+        </section>
 
-        <p>
-            A atividade contribuiu para o aprendizado
-            sobre responsividade, análise de rede
-            e métricas de desempenho, utilizando
-            ferramentas disponíveis no navegador.
-        </p>
+        <section aria-labelledby="acesso">
+            <h2 id="acesso">9. Acesso às páginas</h2>
 
-        <h2>9. Acesso às páginas</h2>
+            <p>
+                As duas versões do catálogo podem
+                ser acessadas para comparação visual.
+            </p>
 
-        <p>
-            As duas versões do catálogo podem ser
-            acessadas para comparação visual.
-        </p>
+            <a class="botao" href="catalogo.html">
+                Ver catálogo CSS próprio
+            </a>
 
-        <a class="botao" href="catalogo.html">
-            Ver catálogo CSS próprio
-        </a>
+            <a class="botao"
+               href="catalogo-bootstrap.html">
+                Ver catálogo Bootstrap
+            </a>
 
-        <a class="botao" href="catalogo-bootstrap.html">
-            Ver catálogo Bootstrap
-        </a>
-
-        <a class="botao" href="index.html">
-            Voltar ao início
-        </a>
+            <a class="botao" href="index.html">
+                Voltar ao início
+            </a>
+        </section>
 
     </main>
 
     <footer>
         <p>
-            AgroFeira — Projeto acadêmico de
-            desenvolvimento web
+            AgroFeira — Projeto acadêmico
+            de desenvolvimento web
         </p>
+
         <p>
-            Comparativo de CSS próprio e Bootstrap — 2026
+            Comparativo de CSS próprio e
+            Bootstrap — 2026
         </p>
     </footer>
 
