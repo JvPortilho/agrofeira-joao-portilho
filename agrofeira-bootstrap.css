@@ -1,0 +1,77 @@
+
+/* agrofeira-bootstrap.css — Atividade 5 */
+
+/* Personalização das variáveis do Bootstrap */
+:root {
+    --bs-primary: #78350f;
+    --bs-primary-rgb: 120, 53, 15;
+
+    --bs-body-bg: #f4f7f2;
+    --bs-body-color: #242424;
+
+    --bs-border-color: #b7b7b7;
+}
+
+/* Estilo geral da página */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    line-height: 1.5;
+}
+
+/* Cabeçalho */
+header h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-marca);
+}
+
+/* Títulos */
+h2,
+h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-marca);
+}
+
+/* Cartões dos produtos */
+.card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+}
+
+/* Imagens dos cartões */
+.card-img-top {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+/* Botões personalizados */
+.btn-primary {
+    background-color: var(--cor-marca);
+    border-color: var(--cor-marca);
+    color: var(--cor-sobre-marca);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background-color: #5c280b;
+    border-color: #5c280b;
+    color: #ffffff;
+}
+
+/* Links */
+a {
+    color: var(--cor-marca);
+}
+
+a:hover {
+    color: #5c280b;
+}
+
+/* Rodapé */
+footer {
+    border-top: 1px solid var(--cor-borda);
+    margin-top: 2rem;
+}
