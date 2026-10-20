@@ -1,7 +1,11 @@
 
-/* agrofeira-bootstrap.css — Atividade 5 */
+/* ==========================================
+   AgroFeira — Atividade 5
+   Personalização do Bootstrap 5.3.8
+   ========================================== */
 
-/* Personalização das variáveis do Bootstrap */
+/* 1. Variáveis de cores do Bootstrap */
+
 :root {
     --bs-primary: #78350f;
     --bs-primary-rgb: 120, 53, 15;
@@ -12,7 +16,8 @@
     --bs-border-color: #b7b7b7;
 }
 
-/* Estilo geral da página */
+/* 2. Estilo geral da página */
+
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
@@ -20,48 +25,23 @@ body {
     line-height: 1.5;
 }
 
-/* Cabeçalho */
+/* 3. Cabeçalho */
+
 header h1 {
     font-family: var(--fonte-titulo);
     color: var(--cor-marca);
 }
 
-/* Títulos */
+/* 4. Títulos */
+
 h2,
 h3 {
     font-family: var(--fonte-titulo);
     color: var(--cor-marca);
 }
 
-/* Cartões dos produtos */
-.card {
-    background-color: var(--cor-superficie);
-    border: 1px solid var(--cor-borda);
-    border-radius: 0.5rem;
-}
+/* 5. Links */
 
-/* Imagens dos cartões */
-.card-img-top {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
-
-/* Botões personalizados */
-.btn-primary {
-    background-color: var(--cor-marca);
-    border-color: var(--cor-marca);
-    color: var(--cor-sobre-marca);
-}
-
-.btn-primary:hover,
-.btn-primary:focus-visible {
-    background-color: #5c280b;
-    border-color: #5c280b;
-    color: #ffffff;
-}
-
-/* Links */
 a {
     color: var(--cor-marca);
 }
@@ -70,8 +50,109 @@ a:hover {
     color: #5c280b;
 }
 
-/* Rodapé */
+/* 6. Cartões dos produtos */
+
+.card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+}
+
+/* 7. Imagens dos cartões */
+
+.card-img-top {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+/* 8. Conteúdo dos cartões */
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-marca);
+}
+
+/* 9. Botões personalizados */
+
+.btn-primary {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #78350f;
+    --bs-btn-border-color: #78350f;
+
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #5c280b;
+    --bs-btn-hover-border-color: #5c280b;
+
+    --bs-btn-focus-shadow-rgb: 120, 53, 15;
+
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #5c280b;
+    --bs-btn-active-border-color: #5c280b;
+
+    --bs-btn-disabled-color: #ffffff;
+    --bs-btn-disabled-bg: #78350f;
+    --bs-btn-disabled-border-color: #78350f;
+}
+
+/* 10. Destaque do produto */
+
+.badge.text-bg-success {
+    background-color: #198754 !important;
+    color: #ffffff !important;
+}
+
+/* 11. Aviso de entregas */
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffe69c;
+    color: #664d03;
+}
+
+/* 12. Lista lateral */
+
+.list-group-item {
+    background-color: var(--cor-superficie);
+    border-color: var(--cor-borda);
+    color: var(--cor-texto);
+}
+
+/* 13. Rodapé */
+
 footer {
     border-top: 1px solid var(--cor-borda);
     margin-top: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* 14. Acessibilidade */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--cor-marca);
+    outline-offset: 3px;
+}
+
+/* 15. Ajustes para telas pequenas */
+
+@media (max-width: 575.98px) {
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .card-body {
+        padding: 0.875rem;
+    }
+
+    .btn-primary {
+        max-width: 100%;
+    }
+
 }
