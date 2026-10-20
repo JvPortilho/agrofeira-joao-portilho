@@ -1,12 +1,15 @@
 
-/* ==========================================
-   AgroFeira — Atividade 5
-   Personalização do Bootstrap 5.3.8
-   ========================================== */
+/* AgroFeira — Atividade 5 */
+/* Personalização do Bootstrap 5.3.8 */
 
-/* 1. Variáveis de cores do Bootstrap */
+/* Este arquivo deve ser carregado depois do
+   Bootstrap e do tokens.css. */
 
-:root {
+/* Variáveis principais e tema claro */
+
+html:root {
+    color-scheme: light;
+
     --bs-primary: #78350f;
     --bs-primary-rgb: 120, 53, 15;
 
@@ -16,70 +19,70 @@
     --bs-border-color: #b7b7b7;
 }
 
-/* 2. Estilo geral da página */
+/* Estilo geral da página */
 
-body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: var(--fonte-texto);
+html body.tema-agrofeira {
+    color-scheme: light;
+
+    --bs-body-bg: #f4f7f2;
+    --bs-body-color: #242424;
+    --bs-emphasis-color: #242424;
+    --bs-secondary-color: #595959;
+    --bs-border-color: #b7b7b7;
+
+    background-color: #f4f7f2;
+    color: #242424;
+
+    font-family: var(--fonte-texto, system-ui, sans-serif);
     line-height: 1.5;
 }
 
-/* 3. Cabeçalho */
+/* Cabeçalho e títulos */
 
-header h1 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-marca);
+body.tema-agrofeira header h1,
+body.tema-agrofeira h2,
+body.tema-agrofeira h3 {
+    color: #78350f;
+    font-family: var(--fonte-titulo, "Nunito", sans-serif);
 }
 
-/* 4. Títulos */
+/* Cartões dos produtos */
 
-h2,
-h3 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-marca);
-}
+body.tema-agrofeira .card {
+    --bs-card-bg: #ffffff;
+    --bs-card-color: #242424;
+    --bs-card-border-color: #b7b7b7;
 
-/* 5. Links */
+    background-color: #ffffff;
+    color: #242424;
 
-a {
-    color: var(--cor-marca);
-}
-
-a:hover {
-    color: #5c280b;
-}
-
-/* 6. Cartões dos produtos */
-
-.card {
-    background-color: var(--cor-superficie);
-    border: 1px solid var(--cor-borda);
     border-radius: 0.5rem;
 }
 
-/* 7. Imagens dos cartões */
+/* Imagens dos produtos */
 
-.card-img-top {
+body.tema-agrofeira .card-img-top {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
-/* 8. Conteúdo dos cartões */
+/* Títulos e textos dos cartões */
 
-.card-body {
-    padding: 1rem;
+body.tema-agrofeira .card-title,
+body.tema-agrofeira .card-text {
+    color: #242424;
 }
 
-.card-title {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-marca);
+/* Textos secundários */
+
+body.tema-agrofeira .text-body-secondary {
+    color: #595959 !important;
 }
 
-/* 9. Botões personalizados */
+/* Botões personalizados */
 
-.btn-primary {
+body.tema-agrofeira .btn-primary {
     --bs-btn-color: #ffffff;
     --bs-btn-bg: #78350f;
     --bs-btn-border-color: #78350f;
@@ -88,71 +91,53 @@ a:hover {
     --bs-btn-hover-bg: #5c280b;
     --bs-btn-hover-border-color: #5c280b;
 
-    --bs-btn-focus-shadow-rgb: 120, 53, 15;
-
     --bs-btn-active-color: #ffffff;
     --bs-btn-active-bg: #5c280b;
     --bs-btn-active-border-color: #5c280b;
 
-    --bs-btn-disabled-color: #ffffff;
-    --bs-btn-disabled-bg: #78350f;
-    --bs-btn-disabled-border-color: #78350f;
+    --bs-btn-focus-shadow-rgb: 120, 53, 15;
 }
 
-/* 10. Destaque do produto */
+/* Lista lateral */
 
-.badge.text-bg-success {
-    background-color: #198754 !important;
-    color: #ffffff !important;
+body.tema-agrofeira .list-group-item {
+    --bs-list-group-bg: #ffffff;
+    --bs-list-group-color: #242424;
+    --bs-list-group-border-color: #b7b7b7;
+
+    background-color: #ffffff;
+    color: #242424;
 }
 
-/* 11. Aviso de entregas */
+/* Links */
 
-.alert-warning {
-    background-color: #fff3cd;
-    border-color: #ffe69c;
-    color: #664d03;
+body.tema-agrofeira a:not(.btn) {
+    color: #78350f;
 }
 
-/* 12. Lista lateral */
-
-.list-group-item {
-    background-color: var(--cor-superficie);
-    border-color: var(--cor-borda);
-    color: var(--cor-texto);
+body.tema-agrofeira a:not(.btn):hover {
+    color: #5c280b;
 }
 
-/* 13. Rodapé */
+/* Aviso de entregas */
 
-footer {
-    border-top: 1px solid var(--cor-borda);
+body.tema-agrofeira .alert-warning {
+    --bs-alert-bg: #fff3cd;
+    --bs-alert-color: #664d03;
+    --bs-alert-border-color: #ffe69c;
+}
+
+/* Rodapé */
+
+body.tema-agrofeira footer {
+    border-top: 1px solid #b7b7b7;
     margin-top: 2rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
 }
 
-/* 14. Acessibilidade */
+/* Acessibilidade */
 
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--cor-marca);
+body.tema-agrofeira a:focus-visible,
+body.tema-agrofeira button:focus-visible {
+    outline: 3px solid #78350f;
     outline-offset: 3px;
-}
-
-/* 15. Ajustes para telas pequenas */
-
-@media (max-width: 575.98px) {
-
-    header h1 {
-        font-size: 1.75rem;
-    }
-
-    .card-body {
-        padding: 0.875rem;
-    }
-
-    .btn-primary {
-        max-width: 100%;
-    }
-
 }
