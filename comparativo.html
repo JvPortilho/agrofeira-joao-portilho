@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparativo — AgroFeira</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Comparativo de Desempenho — AgroFeira</title>
 
     <style>
         * {
@@ -14,86 +16,88 @@
 
         body {
             margin: 0;
-            font-family: system-ui, sans-serif;
-            line-height: 1.6;
-            background: #f4f7f2;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f2;
             color: #242424;
-        }
-
-        .pular {
-            position: absolute;
-            left: -9999px;
-            background: white;
-            padding: 10px;
-        }
-
-        .pular:focus {
-            left: 10px;
-            top: 10px;
-            z-index: 10;
+            line-height: 1.6;
         }
 
         header {
-            background: #78350f;
+            background-color: #78350f;
             color: white;
-            padding: 24px;
+            padding: 25px 20px;
             text-align: center;
         }
 
         header h1 {
-            margin: 0;
-        }
-
-        nav {
-            background: white;
-            padding: 15px;
-            border-bottom: 1px solid #b7b7b7;
-        }
-
-        nav ul {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-        }
-
-        a {
-            color: #78350f;
+            margin: 0 0 10px;
         }
 
         nav a {
-            font-weight: bold;
+            display: inline-block;
+            color: white;
+            margin: 5px 10px;
+            padding: 5px;
         }
 
-        nav a[aria-current="page"] {
-            text-decoration-thickness: 3px;
+        nav a:hover,
+        nav a:focus-visible {
+            background-color: #a85a2a;
+            border-radius: 4px;
         }
 
         main {
             max-width: 1100px;
-            margin: auto;
-            padding: 24px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
         }
 
-        h2, h3 {
+        h2 {
+            color: #78350f;
+            margin-top: 35px;
+        }
+
+        h3 {
             color: #78350f;
         }
 
-        section {
-            margin: 35px 0;
+        p {
+            margin-bottom: 20px;
         }
 
-        .tabela {
+        figure {
+            margin: 25px 0;
+            padding: 15px;
+            border: 1px solid #b7b7b7;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        figure img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: #595959;
+            font-size: 0.95rem;
+        }
+
+        .tabela-container {
+            width: 100%;
             overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
+            margin: 25px 0;
         }
 
         th, td {
@@ -103,59 +107,65 @@
         }
 
         th {
-            background: #eee2d5;
+            background-color: #78350f;
+            color: white;
         }
 
-        figure {
-            margin: 24px 0;
+        tr:nth-child(even) {
+            background-color: #f4f7f2;
+        }
+
+        .observacao {
+            background-color: #fff3d6;
+            border-left: 5px solid #78350f;
             padding: 15px;
-            background: white;
-            border: 1px solid #b7b7b7;
-            border-radius: 8px;
+            margin: 20px 0;
         }
 
-        figure img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
+        .botao {
+            display: inline-block;
+            background-color: #78350f;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px 10px 0;
         }
 
-        figcaption {
-            margin-top: 10px;
-            color: #595959;
-        }
-
-        .aviso {
-            padding: 15px;
-            background: #fff3e1;
-            border-left: 4px solid #78350f;
+        .botao:hover,
+        .botao:focus-visible {
+            background-color: #a85a2a;
         }
 
         footer {
-            background: #78350f;
-            color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            background-color: #78350f;
+            color: white;
+            margin-top: 30px;
         }
 
         @media (max-width: 600px) {
             main {
+                margin: 10px;
                 padding: 15px;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 8px;
+            header {
+                padding: 20px 10px;
             }
 
             figure {
-                padding: 8px;
+                padding: 10px;
             }
 
-            th, td {
-                padding: 8px;
-                font-size: 0.9rem;
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -163,385 +173,346 @@
 
 <body>
 
-    <a class="pular" href="#conteudo">
-        Pular para o conteúdo
-    </a>
-
     <header>
         <h1>AgroFeira</h1>
-        <p>Atividade 05 — CSS próprio × Bootstrap</p>
-    </header>
 
-    <nav aria-label="Principal">
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="catalogo-bootstrap.html">Catálogo Bootstrap</a></li>
-            <li><a href="safra.html">Safra</a></li>
-            <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li>
-                <a href="comparativo.html" aria-current="page">
-                    Comparativo
-                </a>
-            </li>
-        </ul>
-    </nav>
+        <p>Comparativo de Responsividade e Desempenho</p>
+
+        <nav aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="catalogo.html">Catálogo CSS</a>
+            <a href="catalogo-bootstrap.html">
+                Catálogo Bootstrap
+            </a>
+            <a href="comparativo.html"
+               aria-current="page">
+                Comparativo
+            </a>
+        </nav>
+    </header>
 
     <main id="conteudo">
 
-        <h2>Relatório Comparativo</h2>
-
-        <p><strong>Aluno:</strong> João Victor Portilho</p>
-        <p><strong>Matrícula:</strong> [preencher]</p>
+        <h2>1. Introdução</h2>
 
         <p>
-            <a href="https://github.com/JvPortilho/agrofeira-joao-portilho">
-                Repositório no GitHub
-            </a>
+            Este comparativo apresenta os testes
+            realizados no projeto AgroFeira, desenvolvido
+            para divulgar produtos de agricultores
+            e produtores da região de Paragominas.
         </p>
 
-        <section>
-            <h2>1. Introdução</h2>
+        <p>
+            O objetivo foi analisar o comportamento
+            responsivo do catálogo e comparar o
+            desempenho de duas implementações:
+            uma desenvolvida com CSS próprio e
+            outra utilizando o framework Bootstrap.
+        </p>
 
-            <p>
-                Nesta atividade, foram comparadas duas versões
-                do catálogo AgroFeira: uma desenvolvida com CSS
-                próprio e outra utilizando o framework Bootstrap.
-            </p>
+        <h2>2. Teste de responsividade em 360 px</h2>
 
-            <p>
-                O objetivo foi observar as diferenças de
-                responsividade, personalização, organização
-                do código e desempenho das duas implementações.
-            </p>
-        </section>
+        <p>
+            O primeiro teste foi realizado simulando
+            a largura de 360 pixels, semelhante à
+            tela de um smartphone.
+        </p>
 
-        <section>
-            <h2>2. Responsividade</h2>
+        <p>
+            Foi observado como os elementos do catálogo,
+            os botões, as imagens e o menu se adaptaram
+            ao espaço disponível.
+        </p>
 
-            <p>
-                A versão Bootstrap utiliza classes responsivas
-                para organizar os produtos em diferentes
-                tamanhos de tela.
-            </p>
+        <figure>
+            <img
+                src="captura-1-360.png"
+                alt="Catálogo AgroFeira em uma tela de 360 pixels"
+                loading="lazy">
 
-            <p>
-                Em 360 pixels, os cartões são apresentados
-                em uma coluna. Em 768 pixels, passam a ocupar
-                duas colunas. Em 1200 pixels, a organização
-                permite três colunas de produtos.
-            </p>
+            <figcaption>
+                Figura 1 — Teste de responsividade
+                do catálogo em 360 px.
+            </figcaption>
+        </figure>
 
-            <figure>
-                <img
-                    src="imagens/captura-1-360.png"
-                    alt="Catálogo Bootstrap em tela de 360 pixels"
-                    loading="lazy">
+        <h2>3. Teste em 1200 px antes dos ajustes</h2>
 
-                <figcaption>
-                    Figura 1 — Responsividade do Bootstrap
-                    em 360 pixels.
-                </figcaption>
-            </figure>
+        <p>
+            Nesta etapa foi analisada a apresentação
+            do catálogo em uma largura de 1200 pixels,
+            antes das alterações nas regras de estilo.
+        </p>
 
-            <figure>
-                <img
-                    src="imagens/captura-2-1200-antes-CONFERIR.png"
-                    alt="Captura provisória do Bootstrap em 1200 pixels"
-                    loading="lazy">
+        <figure>
+            <img
+                src="captura-2-1200-antes-CONFERIR.png"
+                alt="Catálogo em 1200 pixels antes dos ajustes"
+                loading="lazy">
 
-                <figcaption>
-                    Figura 2 — Bootstrap em 1200 pixels.
-                    Conferir se a imagem representa o estado
-                    anterior à personalização.
-                </figcaption>
-            </figure>
-        </section>
+            <figcaption>
+                Figura 2 — Layout do catálogo em
+                1200 px antes dos ajustes.
+            </figcaption>
+        </figure>
 
-        <section>
-            <h2>3. Personalização do Bootstrap</h2>
+        <h2>4. Ajustes no CSS e resultado</h2>
 
-            <p>
-                Para aproximar a aparência do Bootstrap da
-                identidade visual do AgroFeira, foram
-                utilizadas cores semelhantes às presentes
-                na versão desenvolvida com CSS próprio.
-            </p>
+        <p>
+            Foram analisadas as regras de estilo
+            relacionadas aos botões e à organização
+            dos elementos da página.
+        </p>
 
-            <div class="tabela">
-                <table>
-                    <caption>Personalização das cores</caption>
-                    <thead>
-                        <tr>
-                            <th>Elemento</th>
-                            <th>Cor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Fundo</td>
-                            <td>#f4f7f2</td>
-                        </tr>
-                        <tr>
-                            <td>Texto</td>
-                            <td>#242424</td>
-                        </tr>
-                        <tr>
-                            <td>Botões</td>
-                            <td>#78350f</td>
-                        </tr>
-                        <tr>
-                            <td>Hover</td>
-                            <td>#5c280b</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <figure>
+            <img
+                src="captura3-regra-botao-CONFERIR.png"
+                alt="Inspeção da regra CSS dos botões"
+                loading="lazy">
 
-            <p>
-                A personalização dos botões utiliza variáveis
-                específicas do componente, como --bs-btn-bg
-                e --bs-btn-hover-bg.
-            </p>
+            <figcaption>
+                Figura 3 — Inspeção da regra de
+                estilo aplicada aos botões.
+            </figcaption>
+        </figure>
 
-            <figure>
-                <img
-                    src="imagens/captura-3-regra-botao-CONFERIR.png"
-                    alt="Captura provisória da inspeção do botão"
-                    loading="lazy">
+        <p>
+            Após os ajustes, foi realizado outro
+            teste na mesma largura de 1200 pixels
+            para observar o resultado visual.
+        </p>
 
-                <figcaption>
-                    Figura 3 — Inspeção do botão.
-                    Substituir por uma captura mostrando
-                    .btn-primary e --bs-btn-bg no DevTools.
-                </figcaption>
-            </figure>
+        <figure>
+            <img
+                src="captura-4-1200-depois.png"
+                alt="Catálogo em 1200 pixels depois dos ajustes"
+                loading="lazy">
 
-            <figure>
-                <img
-                    src="imagens/captura-4-1200-depois.png"
-                    alt="Bootstrap personalizado em 1200 pixels"
-                    loading="lazy">
+            <figcaption>
+                Figura 4 — Layout em 1200 px
+                após os ajustes.
+            </figcaption>
+        </figure>
 
-                <figcaption>
-                    Figura 4 — Catálogo Bootstrap após
-                    a personalização visual.
-                </figcaption>
-            </figure>
-        </section>
+        <h2>5. Análise da rede</h2>
 
-        <section>
-            <h2>4. Comparação de desempenho</h2>
+        <p>
+            Na aba Network do Chrome DevTools,
+            foram observados os arquivos carregados,
+            a quantidade de requisições e o volume
+            de dados transferidos pelas duas versões
+            do catálogo.
+        </p>
 
-            <p>
-                Foram realizados testes utilizando as
-                ferramentas Network e Performance do
-                Google Chrome DevTools.
-            </p>
+        <h3>Versão com CSS próprio</h3>
 
-            <div class="tabela">
-                <table>
-                    <caption>Resultados das medições</caption>
-                    <thead>
-                        <tr>
-                            <th>Critério</th>
-                            <th>CSS próprio</th>
-                            <th>Bootstrap</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Total transferido</td>
-                            <td>434 kB</td>
-                            <td>426 kB</td>
-                        </tr>
-                        <tr>
-                            <td>LCP médio</td>
-                            <td>170 ms</td>
-                            <td>140 ms</td>
-                        </tr>
-                        <tr>
-                            <td>LCP mediano</td>
-                            <td>A conferir</td>
-                            <td>110 ms</td>
-                        </tr>
-                        <tr>
-                            <td>CLS nas cinco medições</td>
-                            <td>A conferir</td>
-                            <td>0,00</td>
-                        </tr>
-                        <tr>
-                            <td>Linhas de CSS</td>
-                            <td>A preencher</td>
-                            <td>A preencher</td>
-                        </tr>
-                        <tr>
-                            <td>Classes por cartão</td>
-                            <td>A preencher</td>
-                            <td>A preencher</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <figure>
+            <img
+                src="captura-5-rede-autoral.png"
+                alt="Análise de rede do catálogo com CSS próprio"
+                loading="lazy">
 
-            <p>
-                Os resultados mostram que ambas as versões
-                apresentaram tempos baixos de carregamento.
-                A versão Bootstrap registrou LCP médio de
-                140 ms, enquanto a versão com CSS próprio
-                apresentou média de 170 ms.
-            </p>
+            <figcaption>
+                Figura 5 — Análise de rede da
+                versão com CSS próprio.
+            </figcaption>
+        </figure>
 
-            <p>
-                Essa diferença não significa que o Bootstrap
-                seja sempre mais rápido, pois os resultados
-                também dependem dos recursos carregados,
-                do cache e das condições de cada teste.
-            </p>
-        </section>
+        <h3>Versão com Bootstrap</h3>
 
-        <section>
-            <h2>5. Análise da rede</h2>
+        <figure>
+            <img
+                src="captura-6-rede-bootstrap.png"
+                alt="Análise de rede do catálogo Bootstrap"
+                loading="lazy">
 
-            <p>
-                Na aba Network, foram observados os arquivos
-                carregados e a quantidade de dados transferidos
-                pelas duas versões do catálogo.
-            </p>
+            <figcaption>
+                Figura 6 — Análise de rede da
+                versão Bootstrap.
+            </figcaption>
+        </figure>
 
-            <figure>
-                <img
-                    src="imagens/captura-5-rede-autoral.png"
-                    alt="Network do catálogo com CSS próprio"
-                    loading="lazy">
+        <p>
+            A comparação permite observar que
+            as duas versões carregam os recursos
+            necessários para apresentar o catálogo.
+            A versão Bootstrap também utiliza
+            arquivos do framework, enquanto a
+            versão autoral utiliza os estilos
+            desenvolvidos especificamente para
+            o projeto.
+        </p>
 
-                <figcaption>
-                    Figura 5 — Análise de rede da versão
-                    com CSS próprio.
-                </figcaption>
-            </figure>
+        <h2>6. Análise do LCP</h2>
 
-            <figure>
-                <img
-                    src="imagens/captura-6-rede-bootstrap.png"
-                    alt="Network do catálogo Bootstrap"
-                    loading="lazy">
+        <p>
+            O Largest Contentful Paint (LCP) mede
+            o tempo necessário para renderizar o
+            maior elemento de conteúdo visível
+            da página.
+        </p>
 
-                <figcaption>
-                    Figura 6 — Análise de rede da versão
-                    Bootstrap.
-                </figcaption>
-            </figure>
-        </section>
+        <p>
+            Foram realizadas medições utilizando
+            a aba Performance do Chrome DevTools.
+        </p>
 
-        <section>
-            <h2>6. Análise do LCP</h2>
+        <h3>LCP — CSS próprio</h3>
 
-            <p>
-                O Largest Contentful Paint (LCP) mede
-                quanto tempo o maior elemento visível
-                da página leva para ser renderizado.
-            </p>
+        <figure>
+            <img
+                src="captura-7-lcp-autoral.png"
+                alt="Medição LCP da versão com CSS próprio"
+                loading="lazy">
 
-            <p>
-                Foram realizadas cinco medições em cada
-                implementação para comparar os resultados.
-            </p>
+            <figcaption>
+                Figura 7 — Análise de LCP
+                da versão com CSS próprio.
+            </figcaption>
+        </figure>
 
-            <figure>
-                <img
-                    src="imagens/captura-7-lcp-autoral.png"
-                    alt="Medição LCP do CSS próprio"
-                    loading="lazy">
+        <h3>LCP — Bootstrap</h3>
 
-                <figcaption>
-                    Figura 7 — Desempenho da versão
-                    desenvolvida com CSS próprio.
-                </figcaption>
-            </figure>
+        <figure>
+            <img
+                src="captura-8-lcp-bootstrap.png"
+                alt="Medição LCP da versão Bootstrap"
+                loading="lazy">
 
-            <figure>
-                <img
-                    src="imagens/captura-8-lcp-bootstrap.png"
-                    alt="Medição LCP do Bootstrap"
-                    loading="lazy">
+            <figcaption>
+                Figura 8 — Análise de LCP
+                da versão Bootstrap.
+            </figcaption>
+        </figure>
 
-                <figcaption>
-                    Figura 8 — Desempenho da versão Bootstrap.
-                </figcaption>
-            </figure>
+        <h2>7. Comparação dos resultados</h2>
 
-            <p>
-                A versão Bootstrap apresentou os seguintes
-                resultados de LCP: 260 ms, 110 ms, 110 ms,
-                110 ms e 110 ms.
-            </p>
+        <p>
+            A tabela apresenta alguns resultados
+            observados nas capturas de tela dos
+            testes de desempenho.
+        </p>
 
-            <p>
-                A média foi de 140 ms e a mediana de 110 ms.
-                O CLS permaneceu em 0,00 nas cinco medições.
-            </p>
-        </section>
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>CSS próprio</th>
+                        <th>Bootstrap</th>
+                    </tr>
+                </thead>
 
-        <section>
-            <h2>7. Vantagens e limitações</h2>
+                <tbody>
+                    <tr>
+                        <td>Requisições de rede</td>
+                        <td>13</td>
+                        <td>11</td>
+                    </tr>
 
-            <h3>CSS próprio</h3>
+                    <tr>
+                        <td>Dados transferidos</td>
+                        <td>434 kB</td>
+                        <td>426 kB</td>
+                    </tr>
 
-            <p>
-                O CSS próprio oferece maior liberdade para
-                desenvolver a identidade visual do projeto.
-                Entretanto, exige mais trabalho na criação
-                e manutenção dos componentes responsivos.
-            </p>
+                    <tr>
+                        <td>Tempo de carregamento</td>
+                        <td>432 ms</td>
+                        <td>370 ms</td>
+                    </tr>
 
-            <h3>Bootstrap</h3>
+                    <tr>
+                        <td>CLS</td>
+                        <td>0,00</td>
+                        <td>0</td>
+                    </tr>
 
-            <p>
-                O Bootstrap facilita a criação de grades,
-                cartões e componentes responsivos por meio
-                de classes prontas. Por outro lado, pode
-                exigir personalizações adicionais para
-                manter a aparência desejada.
-            </p>
-        </section>
+                    <tr>
+                        <td>LCP observado</td>
+                        <td>0,15 s</td>
+                        <td>0,11 s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <section>
-            <h2>8. Conclusão</h2>
+        <div class="observacao">
+            <strong>Observação:</strong>
+            Os valores apresentados correspondem
+            a medições específicas registradas
+            durante os testes. Os resultados podem
+            variar conforme o cache, a conexão,
+            o dispositivo e as condições de execução.
+            Os valores de rede e LCP não representam
+            necessariamente a mesma execução.
+        </div>
 
-            <p>
-                A atividade permitiu comparar duas formas
-                de desenvolver a interface do AgroFeira.
-                O CSS próprio oferece maior controle sobre
-                a aparência e a organização visual, enquanto
-                o Bootstrap facilita a construção de layouts
-                responsivos com componentes prontos.
-            </p>
+        <h2>8. Conclusão</h2>
 
-            <p>
-                Nos testes realizados, as duas versões
-                apresentaram bons resultados de desempenho.
-                A escolha entre elas depende das necessidades
-                do projeto, do nível de personalização
-                desejado e da facilidade de manutenção.
-            </p>
-        </section>
+        <p>
+            A realização dos testes permitiu
+            compreender melhor como diferentes
+            formas de estilização podem influenciar
+            a organização visual e o desempenho
+            de uma página web.
+        </p>
 
-        <section class="aviso">
-            <h2>Observações antes da entrega</h2>
+        <p>
+            O catálogo desenvolvido com CSS próprio
+            oferece maior controle sobre a identidade
+            visual e as regras de responsividade.
+            Já a versão Bootstrap facilita a
+            construção de componentes e a organização
+            do layout por meio de classes prontas.
+        </p>
 
-            <p>
-                Conferir as capturas 2 e 3, completar os
-                campos pendentes da tabela e preencher
-                a matrícula do aluno.
-            </p>
-        </section>
+        <p>
+            Nas medições selecionadas, a versão
+            Bootstrap apresentou valores menores
+            de dados transferidos, tempo de
+            carregamento e LCP. Entretanto, esses
+            resultados isolados não são suficientes
+            para afirmar que uma abordagem será
+            sempre mais rápida do que a outra.
+        </p>
+
+        <p>
+            A atividade contribuiu para o aprendizado
+            sobre responsividade, análise de rede
+            e métricas de desempenho, utilizando
+            ferramentas disponíveis no navegador.
+        </p>
+
+        <h2>9. Acesso às páginas</h2>
+
+        <p>
+            As duas versões do catálogo podem ser
+            acessadas para comparação visual.
+        </p>
+
+        <a class="botao" href="catalogo.html">
+            Ver catálogo CSS próprio
+        </a>
+
+        <a class="botao" href="catalogo-bootstrap.html">
+            Ver catálogo Bootstrap
+        </a>
+
+        <a class="botao" href="index.html">
+            Voltar ao início
+        </a>
 
     </main>
 
     <footer>
-        <p>AgroFeira — Relatório da Atividade 05</p>
+        <p>
+            AgroFeira — Projeto acadêmico de
+            desenvolvimento web
+        </p>
+        <p>
+            Comparativo de CSS próprio e Bootstrap — 2026
+        </p>
     </footer>
 
 </body>
