@@ -1,0 +1,498 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Registro de decisão — AgroFeira</title>
+
+    <link rel="stylesheet" href="tokens.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7f2;
+            color: #242424;
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        .documento {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            font-family: "Nunito", system-ui, sans-serif;
+            line-height: 1.3;
+        }
+
+        h1 {
+            color: #78350f;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #78350f;
+            margin-top: 32px;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            margin-top: 24px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: #78350f;
+            overflow-wrap: anywhere;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #78350f;
+            outline-offset: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #cccccc;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f1e7dc;
+        }
+
+        .tabela-responsiva {
+            overflow-x: auto;
+        }
+
+        .observacao {
+            padding: 16px;
+            background: #fff3cd;
+            border-left: 4px solid #78350f;
+            margin: 20px 0;
+        }
+
+        .metadados {
+            color: #595959;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dddddd;
+            color: #595959;
+        }
+
+        @media (max-width: 600px) {
+            .documento {
+                margin: 0;
+                padding: 20px;
+                border: 0;
+                border-radius: 0;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .documento {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+
+            h2, h3 {
+                break-after: avoid;
+            }
+
+            tr {
+                break-inside: avoid;
+            }
+
+            a {
+                color: black;
+            }
+
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="documento">
+
+        <header>
+            <h1>Registro de decisão — AgroFeira</h1>
+
+            <p class="metadados">
+                Atividade 06 — Desenvolvimento Web
+            </p>
+
+            <p>
+                <strong>Aluno:</strong> João Victor Portilho
+            </p>
+
+            <p>
+                <strong>Projeto:</strong> AgroFeira
+            </p>
+        </header>
+
+        <section aria-labelledby="objetivo">
+            <h2 id="objetivo">1. Objetivo</h2>
+
+            <p>
+                Este registro apresenta as decisões tomadas
+                durante o desenvolvimento do projeto AgroFeira,
+                considerando o uso de CSS autoral, Bootstrap
+                e Tailwind.
+            </p>
+
+            <p>
+                Também são apresentados os resultados dos
+                testes de responsividade, acessibilidade,
+                validação de formulários e carregamento
+                de JavaScript.
+            </p>
+        </section>
+
+        <section aria-labelledby="alternativas">
+            <h2 id="alternativas">
+                2. Comparação das alternativas
+            </h2>
+
+            <div class="tabela-responsiva">
+                <table>
+                    <caption>
+                        Comparação entre as abordagens de estilo
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Critério</th>
+                            <th scope="col">CSS autoral</th>
+                            <th scope="col">Bootstrap</th>
+                            <th scope="col">Tailwind</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Organização</th>
+                            <td>
+                                Estilos definidos nos arquivos
+                                CSS do projeto.
+                            </td>
+                            <td>
+                                Utilização de componentes e
+                                classes prontas.
+                            </td>
+                            <td>
+                                Utilização de classes utilitárias.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Responsividade</th>
+                            <td>
+                                Regras CSS e media queries
+                                criadas manualmente.
+                            </td>
+                            <td>
+                                Sistema de grade e classes
+                                responsivas.
+                            </td>
+                            <td>
+                                Utilitários responsivos
+                                aplicados aos elementos.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Personalização</th>
+                            <td>
+                                Controle direto das regras
+                                de estilo.
+                            </td>
+                            <td>
+                                Componentes personalizados
+                                com CSS adicional.
+                            </td>
+                            <td>
+                                Combinação de classes para
+                                definir a aparência.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Interatividade</th>
+                            <td>
+                                Depende da implementação
+                                de JavaScript.
+                            </td>
+                            <td>
+                                Componentes interativos
+                                disponíveis com Bootstrap JS.
+                            </td>
+                            <td>
+                                Necessita de JavaScript
+                                adicional para interações.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                <!-- Escreva aqui sua comparação com base
+                     na página comparativo.html da Atividade 05. -->
+                [Completar com as observações dos testes
+                realizados nas três versões do AgroFeira.]
+            </p>
+        </section>
+
+        <section aria-labelledby="testes">
+            <h2 id="testes">
+                3. Resultados dos testes
+            </h2>
+
+            <h3>3.1 Menu responsivo</h3>
+
+            <p>
+                O catálogo Bootstrap foi testado na
+                largura de 360 pixels.
+                O menu apresentou o botão de abertura
+                e os cinco links de navegação.
+            </p>
+
+            <p>
+                Durante a inspeção, o atributo
+                aria-expanded apresentou o valor true
+                com o menu aberto e false com o menu
+                fechado.
+            </p>
+
+            <h3>3.2 Janela de detalhes do açaí</h3>
+
+            <p>
+                O botão "Ver detalhes" abriu uma janela
+                contendo a imagem, o nome do produto,
+                o produtor, o preço e a descrição.
+            </p>
+
+            <p>
+                A janela foi testada em 360 pixels.
+                O fechamento pela tecla Esc funcionou
+                e o foco retornou ao botão de origem.
+            </p>
+
+            <h3>3.3 Validação do formulário</h3>
+
+            <p>
+                O formulário de fechamento do pedido
+                possui os campos Nome completo, E-mail
+                e aceite das regras da feira.
+            </p>
+
+            <p>
+                Ao tentar enviar o formulário vazio
+                com JavaScript ativado, foram exibidas
+                mensagens de erro abaixo dos campos.
+            </p>
+
+            <h3>3.4 Teste sem JavaScript</h3>
+
+            <p>
+                Com o JavaScript desativado, o formulário
+                continuou visível, mas deixou de apresentar
+                as mensagens de validação.
+            </p>
+
+            <p>
+                Como o formulário utiliza novalidate,
+                o navegador permitiu o envio dos campos
+                vazios por meio do método GET.
+            </p>
+
+            <div class="observacao">
+                <strong>Limitação identificada:</strong>
+                a validação personalizada depende da
+                execução do arquivo validacao.js.
+            </div>
+        </section>
+
+        <section aria-labelledby="desempenho">
+            <h2 id="desempenho">
+                4. Medição do JavaScript
+            </h2>
+
+            <p>
+                O tamanho dos arquivos JavaScript foi
+                observado utilizando a aba Network
+                das ferramentas de desenvolvedor do Chrome.
+            </p>
+
+            <div class="tabela-responsiva">
+                <table>
+                    <caption>
+                        Resultados registrados no navegador
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Arquivo</th>
+                            <th scope="col">Transferido</th>
+                            <th scope="col">Recurso</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>bootstrap.bundle.min.js</td>
+                            <td>25,2 kB</td>
+                            <td>80,5 kB</td>
+                        </tr>
+
+                        <tr>
+                            <td>validacao.js</td>
+                            <td>0,6 kB</td>
+                            <td>0,6 kB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                O Bootstrap disponibiliza funcionalidades
+                prontas para o menu e a janela de detalhes.
+                O arquivo validacao.js foi utilizado
+                especificamente para a validação do formulário.
+            </p>
+        </section>
+
+        <section aria-labelledby="acessibilidade">
+            <h2 id="acessibilidade">
+                5. Acessibilidade
+            </h2>
+
+            <p>
+                Foram utilizados elementos semânticos,
+                rótulos nos campos do formulário,
+                textos alternativos nas imagens e
+                atributos ARIA nos componentes interativos.
+            </p>
+
+            <p>
+                No formulário, aria-describedby relaciona
+                cada campo à sua mensagem de erro.
+                No catálogo, aria-expanded informa
+                o estado do menu responsivo.
+            </p>
+
+            <p>
+                <!-- Completar após os testes finais. -->
+                [Registrar aqui os resultados da validação
+                HTML e de outros testes de acessibilidade.]
+            </p>
+        </section>
+
+        <section aria-labelledby="decisao">
+            <h2 id="decisao">
+                6. Decisão final
+            </h2>
+
+            <p>
+                <!-- Esta conclusão deve ser escrita pelo aluno. -->
+                [Explicar qual abordagem você escolheria
+                para continuar o AgroFeira e por quê.
+                Considere manutenção, responsividade,
+                acessibilidade e desempenho.]
+            </p>
+
+            <p>
+                [Apontar pelo menos uma limitação da
+                abordagem escolhida e como pretende
+                lidar com ela.]
+            </p>
+        </section>
+
+        <section aria-labelledby="links">
+            <h2 id="links">
+                7. Links do projeto
+            </h2>
+
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Página inicial do AgroFeira
+                    </a>
+                </li>
+
+                <li>
+                    <a href="catalogo-bootstrap.html">
+                        Catálogo Bootstrap
+                    </a>
+                </li>
+
+                <li>
+                    <a href="checkout-bootstrap.html">
+                        Fechamento do pedido
+                    </a>
+                </li>
+
+                <li>
+                    <a href="comparativo.html">
+                        Comparativo das implementações
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/JvPortilho/agrofeira-joao-portilho">
+                        Repositório no GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>
+                AgroFeira — Registro de decisão,
+                Atividade 06.
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
