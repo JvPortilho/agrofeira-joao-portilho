@@ -9,144 +9,209 @@
 
     <title>Registro de decisão — AgroFeira</title>
 
-    <link rel="stylesheet" href="tokens.css">
-
     <style>
-        * {
+        :root {
+            --marca: #78350f;
+            --texto: #242424;
+            --suave: #595959;
+            --borda: #d6d6d6;
+            --fundo: #f4f7f2;
+        }
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            background: #f4f7f2;
-            color: #242424;
+            background: var(--fundo);
+            color: var(--texto);
             font-family: system-ui, sans-serif;
+            font-size: 16px;
             line-height: 1.6;
         }
 
         .documento {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
+            max-width: 920px;
+            margin: 32px auto;
+            padding: 44px 52px;
             background: #ffffff;
-            border: 1px solid #dddddd;
+            border: 1px solid var(--borda);
             border-radius: 8px;
         }
 
-        h1, h2, h3 {
-            font-family: "Nunito", system-ui, sans-serif;
+        h1,
+        h2,
+        h3 {
             line-height: 1.3;
         }
 
         h1 {
-            color: #78350f;
-            margin-top: 0;
+            font-size: 2rem;
+            color: var(--marca);
+            margin: 0 0 8px;
         }
 
         h2 {
-            color: #78350f;
-            margin-top: 32px;
-            border-bottom: 1px solid #dddddd;
-            padding-bottom: 8px;
+            font-size: 1.35rem;
+            color: var(--marca);
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 7px;
+            margin: 32px 0 15px;
         }
 
         h3 {
-            margin-top: 24px;
+            font-size: 1.08rem;
+            margin: 22px 0 8px;
         }
 
         p {
+            margin: 0 0 13px;
+        }
+
+        .meta {
+            color: var(--suave);
             margin-bottom: 16px;
         }
 
+        .tabela {
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.91rem;
+            margin: 14px 0 19px;
+        }
+
+        caption {
+            font-weight: 600;
+            margin-bottom: 7px;
+            text-align: left;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--borda);
+            padding: 9px 10px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: #f3ece5;
+        }
+
         a {
-            color: #78350f;
+            color: var(--marca);
             overflow-wrap: anywhere;
         }
 
         a:focus-visible {
-            outline: 3px solid #78350f;
+            outline: 3px solid var(--marca);
             outline-offset: 3px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            padding: 12px;
-            border: 1px solid #cccccc;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        th {
-            background: #f1e7dc;
-        }
-
-        .tabela-responsiva {
-            overflow-x: auto;
-        }
-
-        .observacao {
-            padding: 16px;
-            background: #fff3cd;
-            border-left: 4px solid #78350f;
-            margin: 20px 0;
-        }
-
-        .metadados {
-            color: #595959;
+        .destaque {
+            border-left: 4px solid var(--marca);
+            padding: 11px 15px;
+            background: #f8f2eb;
+            margin: 17px 0;
         }
 
         footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #dddddd;
-            color: #595959;
+            border-top: 1px solid var(--borda);
+            padding-top: 14px;
+            margin-top: 32px;
+            color: var(--suave);
+            font-size: 0.9rem;
         }
 
+        /* Responsividade */
         @media (max-width: 600px) {
             .documento {
+                padding: 22px 18px;
                 margin: 0;
-                padding: 20px;
                 border: 0;
                 border-radius: 0;
             }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            table {
+                font-size: 0.82rem;
+            }
+        }
+
+        /* Impressão em A4 */
+        @page {
+            size: A4;
+            margin: 17mm;
         }
 
         @media print {
             body {
                 background: white;
-                color: black;
+                font-size: 10pt;
+                line-height: 1.45;
             }
 
             .documento {
-                max-width: none;
+                border: 0;
                 margin: 0;
                 padding: 0;
-                border: 0;
+                max-width: none;
             }
 
-            h2, h3 {
+            h1 {
+                font-size: 20pt;
+            }
+
+            h2 {
+                font-size: 13pt;
+                margin-top: 18px;
+            }
+
+            h3 {
+                font-size: 11pt;
+                margin-top: 13px;
+            }
+
+            table {
+                font-size: 8.3pt;
+            }
+
+            th,
+            td {
+                padding: 6px 7px;
+            }
+
+            h2,
+            h3,
+            caption {
                 break-after: avoid;
             }
 
-            tr {
+            tr,
+            .destaque {
                 break-inside: avoid;
             }
 
             a {
-                color: black;
+                color: var(--marca);
             }
 
-            @page {
-                size: A4;
-                margin: 2cm;
+            footer {
+                margin-top: 20px;
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -156,46 +221,64 @@
         <header>
             <h1>Registro de decisão — AgroFeira</h1>
 
-            <p class="metadados">
+            <p class="meta">
                 Atividade 06 — Desenvolvimento Web
             </p>
 
             <p>
-                <strong>Aluno:</strong> João Victor Portilho
-            </p>
+                <strong>Aluno:</strong>
+                João Victor Portilho
 
-            <p>
-                <strong>Projeto:</strong> AgroFeira
+                <br>
+
+                <strong>Projeto:</strong>
+                AgroFeira
             </p>
         </header>
 
+        <!-- 1. OBJETIVO -->
+
         <section aria-labelledby="objetivo">
+
             <h2 id="objetivo">1. Objetivo</h2>
 
             <p>
-                Este registro apresenta as decisões tomadas
-                durante o desenvolvimento do projeto AgroFeira,
-                considerando o uso de CSS autoral, Bootstrap
-                e Tailwind.
+                Este registro reúne as decisões de
+                desenvolvimento do AgroFeira, projeto
+                voltado à apresentação de produtos
+                de produtores da região de Paragominas.
+                O objetivo é comparar três maneiras
+                de construir a interface: CSS autoral,
+                Bootstrap e Tailwind, avaliando qual
+                delas faz mais sentido para a
+                continuidade do site.
             </p>
 
             <p>
-                Também são apresentados os resultados dos
-                testes de responsividade, acessibilidade,
-                validação de formulários e carregamento
-                de JavaScript.
+                A análise considera a organização
+                do código, a adaptação a diferentes
+                telas, a acessibilidade, a
+                interatividade e os resultados
+                observados nos testes do catálogo
+                e do formulário de pedido.
             </p>
+
         </section>
 
-        <section aria-labelledby="alternativas">
-            <h2 id="alternativas">
+        <!-- 2. COMPARAÇÃO -->
+
+        <section aria-labelledby="comparacao">
+
+            <h2 id="comparacao">
                 2. Comparação das alternativas
             </h2>
 
-            <div class="tabela-responsiva">
+            <div class="tabela">
+
                 <table>
+
                     <caption>
-                        Comparação entre as abordagens de estilo
+                        Características das três abordagens
                     </caption>
 
                     <thead>
@@ -208,81 +291,134 @@
                     </thead>
 
                     <tbody>
+
                         <tr>
                             <th scope="row">Organização</th>
+
                             <td>
-                                Estilos definidos nos arquivos
-                                CSS do projeto.
+                                As regras ficam nos arquivos
+                                CSS do projeto, com controle
+                                direto sobre seletores
+                                e variáveis.
                             </td>
+
                             <td>
-                                Utilização de componentes e
-                                classes prontas.
+                                Classes e componentes
+                                padronizados reduzem o
+                                trabalho de criar
+                                estruturas comuns.
                             </td>
+
                             <td>
-                                Utilização de classes utilitárias.
+                                Classes utilitárias são
+                                combinadas diretamente
+                                no HTML.
                             </td>
                         </tr>
 
                         <tr>
                             <th scope="row">Responsividade</th>
+
                             <td>
-                                Regras CSS e media queries
-                                criadas manualmente.
+                                Exige planejar as media
+                                queries e o comportamento
+                                de cada elemento.
                             </td>
+
                             <td>
-                                Sistema de grade e classes
-                                responsivas.
+                                Oferece grade responsiva,
+                                pontos de quebra e
+                                componentes adaptáveis.
                             </td>
+
                             <td>
-                                Utilitários responsivos
-                                aplicados aos elementos.
+                                Oferece variantes
+                                responsivas para aplicar
+                                estilos por largura de tela.
                             </td>
                         </tr>
 
                         <tr>
                             <th scope="row">Personalização</th>
+
                             <td>
-                                Controle direto das regras
-                                de estilo.
+                                Maior liberdade para
+                                definir a identidade
+                                visual sem depender
+                                de componentes prontos.
                             </td>
+
                             <td>
-                                Componentes personalizados
-                                com CSS adicional.
+                                Pode ser personalizado
+                                com variáveis e CSS
+                                adicional, como no AgroFeira.
                             </td>
+
                             <td>
-                                Combinação de classes para
-                                definir a aparência.
+                                Permite compor estilos
+                                com utilitários e
+                                configuração do tema.
                             </td>
                         </tr>
 
                         <tr>
                             <th scope="row">Interatividade</th>
+
                             <td>
-                                Depende da implementação
-                                de JavaScript.
+                                Interações como menus
+                                e janelas precisam ser
+                                implementadas separadamente.
                             </td>
+
                             <td>
-                                Componentes interativos
-                                disponíveis com Bootstrap JS.
+                                O JavaScript do framework
+                                oferece menu recolhível
+                                e modal.
                             </td>
+
                             <td>
-                                Necessita de JavaScript
-                                adicional para interações.
+                                Os utilitários de estilo
+                                não fornecem, por si só,
+                                a lógica de um modal
+                                ou menu.
                             </td>
                         </tr>
+
                     </tbody>
+
                 </table>
+
             </div>
 
             <p>
-                <!-- Escreva aqui sua comparação com base
-                     na página comparativo.html da Atividade 05. -->
-                [Completar com as observações dos testes
-                realizados nas três versões do AgroFeira.]
+                Na experiência com o AgroFeira, o CSS
+                autoral foi importante para definir
+                cores, tipografia e a aparência das
+                páginas. Já o Bootstrap facilitou
+                a criação do catálogo em cartões,
+                do menu para telas pequenas e da
+                janela de detalhes do açaí.
             </p>
+
+            <p>
+                O Tailwind é uma alternativa viável
+                para estilização por classes, mas
+                não substitui sozinho o JavaScript
+                necessário para essas interações.
+                Essa comparação descreve as
+                características das abordagens e os
+                resultados observados no catálogo
+                Bootstrap, sem representar uma
+                medição equivalente de desempenho
+                das três versões.
+            </p>
+
         </section>
 
+        <!-- 3. RESULTADOS DOS TESTES -->
+
         <section aria-labelledby="testes">
+
             <h2 id="testes">
                 3. Resultados dos testes
             </h2>
@@ -290,189 +426,334 @@
             <h3>3.1 Menu responsivo</h3>
 
             <p>
-                O catálogo Bootstrap foi testado na
-                largura de 360 pixels.
-                O menu apresentou o botão de abertura
-                e os cinco links de navegação.
+                Na largura de 360 px, o menu foi
+                exibido de forma recolhida, com
+                um botão para mostrar os cinco
+                links de navegação.
             </p>
 
             <p>
-                Durante a inspeção, o atributo
-                aria-expanded apresentou o valor true
-                com o menu aberto e false com o menu
-                fechado.
+                Ao abrir e fechar o menu, a inspeção
+                do navegador mostrou a mudança do
+                atributo <code>aria-expanded</code>
+                de <code>false</code> para
+                <code>true</code> e vice-versa.
+                Os cartões continuaram organizados
+                em uma coluna.
             </p>
 
             <h3>3.2 Janela de detalhes do açaí</h3>
 
             <p>
-                O botão "Ver detalhes" abriu uma janela
-                contendo a imagem, o nome do produto,
-                o produtor, o preço e a descrição.
+                O botão "Ver detalhes" abriu uma
+                janela com a imagem, o produtor,
+                o preço e a descrição do açaí.
             </p>
 
             <p>
-                A janela foi testada em 360 pixels.
-                O fechamento pela tecla Esc funcionou
-                e o foco retornou ao botão de origem.
+                Na visualização de 360 px, o
+                conteúdo permaneceu legível.
+                O fechamento pela tecla Esc
+                funcionou e o foco voltou ao
+                botão que havia aberto a janela,
+                permitindo continuar a navegação
+                pelo teclado.
             </p>
 
             <h3>3.3 Validação do formulário</h3>
 
             <p>
-                O formulário de fechamento do pedido
-                possui os campos Nome completo, E-mail
-                e aceite das regras da feira.
+                O formulário de fechamento do
+                pedido contém nome completo,
+                e-mail e uma caixa de aceite
+                das regras.
             </p>
 
             <p>
-                Ao tentar enviar o formulário vazio
-                com JavaScript ativado, foram exibidas
-                mensagens de erro abaixo dos campos.
-            </p>
-
-            <h3>3.4 Teste sem JavaScript</h3>
-
-            <p>
-                Com o JavaScript desativado, o formulário
-                continuou visível, mas deixou de apresentar
-                as mensagens de validação.
+                Com JavaScript ativado, a tentativa
+                de enviar os campos vazios
+                apresentou bordas vermelhas e
+                mensagens específicas para
+                cada campo.
             </p>
 
             <p>
-                Como o formulário utiliza novalidate,
-                o navegador permitiu o envio dos campos
-                vazios por meio do método GET.
+                O arquivo
+                <code>validacao.js</code>
+                foi carregado com resposta
+                HTTP 200.
             </p>
 
-            <div class="observacao">
-                <strong>Limitação identificada:</strong>
-                a validação personalizada depende da
-                execução do arquivo validacao.js.
+            <h3>3.4 Funcionamento sem JavaScript</h3>
+
+            <p>
+                Com o JavaScript desativado,
+                o formulário continuou visível,
+                mas não apresentou as mensagens
+                de validação.
+            </p>
+
+            <p>
+                Como o elemento
+                <code>form</code>
+                usa <code>novalidate</code>,
+                o navegador permitiu o envio
+                vazio, resultando em uma URL
+                com <code>?nome=&amp;email=</code>.
+            </p>
+
+            <div class="destaque">
+
+                <strong>Limitação encontrada:</strong>
+
+                A validação atual depende do
+                JavaScript. Uma melhoria seria
+                preservar a validação nativa
+                quando os scripts não estiverem
+                disponíveis e acrescentar
+                validação no servidor caso
+                o projeto passe a receber
+                pedidos reais.
+
             </div>
+
         </section>
 
-        <section aria-labelledby="desempenho">
-            <h2 id="desempenho">
-                4. Medição do JavaScript
+        <!-- 4. MEDIÇÃO DO JAVASCRIPT -->
+
+        <section aria-labelledby="medicao">
+
+            <h2 id="medicao">
+                4. Medição dos arquivos JavaScript
             </h2>
 
             <p>
-                O tamanho dos arquivos JavaScript foi
-                observado utilizando a aba Network
-                das ferramentas de desenvolvedor do Chrome.
+                As medições foram observadas
+                na aba Network do Chrome durante
+                os testes das páginas publicadas.
             </p>
 
-            <div class="tabela-responsiva">
+            <div class="tabela">
+
                 <table>
+
                     <caption>
-                        Resultados registrados no navegador
+                        Valores observados no navegador
                     </caption>
 
                     <thead>
                         <tr>
                             <th scope="col">Arquivo</th>
                             <th scope="col">Transferido</th>
-                            <th scope="col">Recurso</th>
+                            <th scope="col">
+                                Tamanho do recurso
+                            </th>
                         </tr>
                     </thead>
 
                     <tbody>
+
                         <tr>
-                            <td>bootstrap.bundle.min.js</td>
+                            <td>
+                                <code>
+                                    bootstrap.bundle.min.js
+                                </code>
+                            </td>
+
                             <td>25,2 kB</td>
+
                             <td>80,5 kB</td>
                         </tr>
 
                         <tr>
-                            <td>validacao.js</td>
-                            <td>0,6 kB</td>
-                            <td>0,6 kB</td>
+                            <td>
+                                <code>validacao.js</code>
+                            </td>
+
+                            <td>aprox. 0,6 kB</td>
+
+                            <td>aprox. 0,6 kB</td>
                         </tr>
+
                     </tbody>
+
                 </table>
+
             </div>
 
             <p>
-                O Bootstrap disponibiliza funcionalidades
-                prontas para o menu e a janela de detalhes.
-                O arquivo validacao.js foi utilizado
-                especificamente para a validação do formulário.
+                O Bootstrap traz funcionalidades
+                prontas que economizam trabalho
+                de implementação, mas acrescenta
+                um arquivo JavaScript maior
+                ao catálogo.
             </p>
+
+            <p>
+                O script de validação do checkout
+                é pequeno e tem uma responsabilidade
+                específica. Os valores representam
+                as medições observadas, não uma
+                comparação completa de velocidade
+                entre frameworks.
+            </p>
+
         </section>
 
+        <!-- 5. ACESSIBILIDADE -->
+
         <section aria-labelledby="acessibilidade">
+
             <h2 id="acessibilidade">
-                5. Acessibilidade
+                5. Acessibilidade e pontos de melhoria
             </h2>
 
             <p>
-                Foram utilizados elementos semânticos,
-                rótulos nos campos do formulário,
-                textos alternativos nas imagens e
-                atributos ARIA nos componentes interativos.
+                O catálogo utiliza um link para
+                pular ao conteúdo, textos
+                alternativos nas imagens e um
+                menu identificado por
+                <code>aria-label</code>.
             </p>
 
             <p>
-                No formulário, aria-describedby relaciona
-                cada campo à sua mensagem de erro.
-                No catálogo, aria-expanded informa
-                o estado do menu responsivo.
+                O botão do menu informa seu
+                estado com
+                <code>aria-expanded</code>.
+                A janela de detalhes possui
+                título associado e permite
+                fechamento pelo teclado
+                com retorno do foco.
             </p>
 
             <p>
-                <!-- Completar após os testes finais. -->
-                [Registrar aqui os resultados da validação
-                HTML e de outros testes de acessibilidade.]
+                No checkout, os campos possuem
+                rótulos e as mensagens de erro
+                são relacionadas por
+                <code>aria-describedby</code>.
             </p>
+
+            <p>
+                Os testes visuais confirmaram
+                a exibição das mensagens.
+                Porém, isso não substitui uma
+                avaliação com leitor de tela
+                nem uma validação automática
+                completa do HTML.
+            </p>
+
+            <p>
+                Como próximos cuidados, é
+                importante validar as páginas
+                em um verificador HTML, testar
+                a leitura das mensagens com
+                tecnologia assistiva e corrigir
+                a dependência de JavaScript
+                no envio do formulário.
+            </p>
+
         </section>
 
+        <!-- 6. DECISÃO FINAL -->
+
         <section aria-labelledby="decisao">
+
             <h2 id="decisao">
                 6. Decisão final
             </h2>
 
             <p>
-                <!-- Esta conclusão deve ser escrita pelo aluno. -->
-                [Explicar qual abordagem você escolheria
-                para continuar o AgroFeira e por quê.
-                Considere manutenção, responsividade,
-                acessibilidade e desempenho.]
+                Para continuar o AgroFeira,
+                a opção mais prática é combinar
+                Bootstrap com o CSS autoral
+                que já faz parte do projeto.
             </p>
 
             <p>
-                [Apontar pelo menos uma limitação da
-                abordagem escolhida e como pretende
-                lidar com ela.]
+                O Bootstrap ajuda a manter
+                a organização dos cartões
+                e oferece componentes
+                responsivos e interativos,
+                enquanto os estilos próprios
+                preservam as cores e a
+                identidade visual da feira.
             </p>
+
+            <p>
+                Essa escolha também facilita
+                a manutenção: em vez de
+                desenvolver novamente o
+                comportamento de um menu
+                recolhível ou de uma janela
+                de detalhes, é possível
+                utilizar componentes conhecidos
+                e concentrar o trabalho nas
+                necessidades do site.
+            </p>
+
+            <p>
+                Ainda assim, usar componentes
+                prontos não garante acessibilidade
+                automaticamente. Cada interação
+                precisa ser testada.
+            </p>
+
+            <p>
+                O principal ponto a melhorar
+                é a validação do checkout.
+                O teste sem JavaScript mostrou
+                que os campos vazios podem
+                ser enviados.
+            </p>
+
+            <p>
+                Para uma próxima versão,
+                pretendo manter uma proteção
+                nativa do navegador quando
+                os scripts estiverem desligados
+                e, se houver pedidos reais,
+                validar os dados também
+                no servidor.
+            </p>
+
+            <p>
+                Dessa forma, a praticidade
+                do framework não fica acima
+                da confiabilidade do formulário.
+            </p>
+
         </section>
 
+        <!-- 7. LINKS DO PROJETO -->
+
         <section aria-labelledby="links">
+
             <h2 id="links">
                 7. Links do projeto
             </h2>
 
             <ul>
+
                 <li>
-                    <a href="index.html">
+                    <a href="https://jvportilho.github.io/agrofeira-joao-portilho/index.html">
                         Página inicial do AgroFeira
                     </a>
                 </li>
 
                 <li>
-                    <a href="catalogo-bootstrap.html">
+                    <a href="https://jvportilho.github.io/agrofeira-joao-portilho/catalogo-bootstrap.html">
                         Catálogo Bootstrap
                     </a>
                 </li>
 
                 <li>
-                    <a href="checkout-bootstrap.html">
+                    <a href="https://jvportilho.github.io/agrofeira-joao-portilho/checkout-bootstrap.html">
                         Fechamento do pedido
                     </a>
                 </li>
 
                 <li>
-                    <a href="comparativo.html">
+                    <a href="https://jvportilho.github.io/agrofeira-joao-portilho/comparativo.html">
                         Comparativo das implementações
                     </a>
                 </li>
@@ -482,7 +763,9 @@
                         Repositório no GitHub
                     </a>
                 </li>
+
             </ul>
+
         </section>
 
         <footer>
