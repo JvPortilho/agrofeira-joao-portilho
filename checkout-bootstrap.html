@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="agrofeira-bootstrap.css">
 
+    <!-- JavaScript de validação -->
+    <script defer src="validacao.js"></script>
+
 </head>
 
 <body data-bs-theme="light" class="tema-agrofeira">
@@ -29,8 +32,8 @@
             Fechar o pedido
         </h1>
 
-        <!-- Formulário -->
-        <form class="row g-3">
+        <!-- Formulário de fechamento -->
+        <form class="row g-3 needs-validation" novalidate>
 
             <!-- Nome completo -->
             <div class="col-12 col-md-6">
@@ -45,7 +48,14 @@
                     id="nome"
                     name="nome"
                     autocomplete="name"
+                    aria-describedby="nome-erro"
                     required>
+
+                <div
+                    class="invalid-feedback"
+                    id="nome-erro">
+                    Informe o seu nome.
+                </div>
 
             </div>
 
@@ -62,7 +72,14 @@
                     id="email"
                     name="email"
                     autocomplete="email"
+                    aria-describedby="email-erro"
                     required>
+
+                <div
+                    class="invalid-feedback"
+                    id="email-erro">
+                    Informe um e-mail, como maria@exemplo.com.br.
+                </div>
 
             </div>
 
@@ -76,6 +93,7 @@
                         class="form-check-input"
                         id="termos"
                         name="termos"
+                        aria-describedby="termos-erro"
                         required>
 
                     <label
@@ -84,11 +102,17 @@
                         Li e aceito as regras da feira
                     </label>
 
+                    <div
+                        class="invalid-feedback"
+                        id="termos-erro">
+                        É preciso aceitar as regras para continuar.
+                    </div>
+
                 </div>
 
             </div>
 
-            <!-- Botão -->
+            <!-- Botão de envio -->
             <div class="col-12">
 
                 <button
