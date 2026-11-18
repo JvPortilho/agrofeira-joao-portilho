@@ -6,106 +6,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JavaScript na AgroFeira</title>
+    <title>JavaScript na AgroFeira — João Victor Portilho Santos</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- CSS do projeto -->
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="estilo.css">
 
+    <style>
+        body {
+            font-family: "Nunito", sans-serif;
+            background: #f4f7f2;
+            color: #242424;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+        }
+
+        h1, h2, h3 {
+            color: #78350f;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p, li {
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: #78350f;
+            overflow-wrap: anywhere;
+        }
+
+        section {
+            margin-top: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        pre {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        .dados {
+            background: #f4f7f2;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Link para pular diretamente ao conteúdo -->
-    <a class="pular" href="#conteudo">
-        Pular para o conteúdo
-    </a>
-
-    <!-- Cabeçalho -->
-    <header class="cabecalho-site">
-
-        <h1>AgroFeira</h1>
-
-        <nav aria-label="Principal">
-
-            <ul class="menu">
-
-                <li>
-                    <a href="index.html">Início</a>
-                </li>
-
-                <li>
-                    <a href="catalogo.html">Catálogo</a>
-                </li>
-
-                <li>
-                    <a href="safra.html">Safra</a>
-                </li>
-
-                <li>
-                    <a href="cadastro-produtor.html">Cadastro</a>
-                </li>
-
-                <li>
-                    <a href="sobre.html">Sobre</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
-
-    <!-- Conteúdo principal -->
     <main id="conteudo">
 
-        <h2>JavaScript na AgroFeira</h2>
+        <h1>JavaScript na AgroFeira</h1>
 
-        <p>
-            Experimentos da aula 8.
-        </p>
+        <h2>Identificação do aluno</h2>
 
-        <!-- Forma 3: JavaScript em linha -->
-        <button
-            type="button"
-            onclick="alert('Forma 3: em linha, dentro da tag')"
-        >
-            Forma 3
-        </button>
+        <div class="dados">
+            <p><strong>Nome:</strong> João Victor Portilho Santos</p>
+            <p><strong>Matrícula:</strong> 2025022389</p>
+            <p><strong>Repositório GitHub:</strong>
+                <a href="https://github.com/JvPortilho/agrofeira-joao-portilho">
+                    https://github.com/JvPortilho/agrofeira-joao-portilho
+                </a>
+            </p>
+            <p><strong>Página pública:</strong>
+                <a href="https://jvportilho.github.io/agrofeira-joao-portilho/aula8.html">
+                    https://jvportilho.github.io/agrofeira-joao-portilho/aula8.html
+                </a>
+            </p>
+        </div>
 
-        <!-- Forma 1: JavaScript externo -->
-        <script src="js/aula8.js"></script>
+        <section>
+            <h2>Meus projetos</h2>
 
-        <!-- Forma 2: JavaScript interno -->
-        <script>
-            console.log('Forma 2: interna, entre as tags script');
-        </script>
+            <h3>Parte B — Tabuleiro</h3>
+            <p>
+                Projeto desenvolvido com React, utilizando componentes
+                para representar as casas de um tabuleiro.
+            </p>
+            <p>
+                <a href="https://codesandbox.io/p/sandbox/react-dev-forked-ht55yy?file=%2Fsrc%2FApp.js%3A10%2C11">
+                    Abrir projeto Tabuleiro no CodeSandbox
+                </a>
+            </p>
+            <p>
+                URL: https://codesandbox.io/p/sandbox/react-dev-forked-ht55yy?file=%2Fsrc%2FApp.js%3A10%2C11
+            </p>
+
+            <h3>Parte C — AgroFeira em componentes</h3>
+            <p>
+                Projeto que utiliza componentes React para organizar
+                e reutilizar elementos da interface da AgroFeira.
+            </p>
+            <p>
+                <a href="https://codesandbox.io/p/sandbox/react-dev-forked-jys9fv?file=%2Fsrc%2FApp.js">
+                    Abrir AgroFeira em componentes no CodeSandbox
+                </a>
+            </p>
+            <p>
+                URL: https://codesandbox.io/p/sandbox/react-dev-forked-jys9fv?file=%2Fsrc%2FApp.js
+            </p>
+        </section>
+
+        <section>
+            <h2>Mensagens que encontrei</h2>
+
+            <h3>Passo 6 — Erro de referência no JavaScript</h3>
+            <p>
+                Ocorre quando o código tenta utilizar uma variável
+                que não foi declarada.
+            </p>
+            <pre><code>Uncaught ReferenceError: naoExiste is not defined
+    at aula8.js:4:1</code></pre>
+            <p><em>Mensagem registrada a partir do erro informado no navegador.</em></p>
+
+            <h3>Passo 10 — Erro de elementos JSX</h3>
+            <p>
+                Ocorre quando dois elementos JSX são retornados
+                lado a lado sem um elemento que os envolva.
+            </p>
+            <pre><code>Adjacent JSX elements must be wrapped in an enclosing tag.
+Did you want a JSX fragment &lt;&gt;...&lt;/&gt;?</code></pre>
+            <p><em>Mensagem esperada; conferir o texto exato no CodeSandbox.</em></p>
+
+            <h3>Passo 14 — Erro de declaração duplicada</h3>
+            <p>
+                Ocorre quando o identificador value é declarado
+                novamente no mesmo escopo.
+            </p>
+            <pre><code>SyntaxError: Identifier 'value' has already been declared</code></pre>
+            <p><em>Mensagem esperada; conferir o texto exato no CodeSandbox.</em></p>
+        </section>
+
+        <section>
+            <h2>O que eu aprendi</h2>
+
+            <h3>1. Qual a diferença entre JavaScript externo, interno e inline?</h3>
+            <p>
+                O JavaScript externo fica em um arquivo separado e pode
+                ser utilizado em várias páginas do site. O JavaScript
+                interno fica dentro da própria página HTML, na tag script.
+                Já o JavaScript inline é colocado diretamente em um
+                elemento HTML, como em um botão. Para um programa com
+                200 linhas utilizado em várias páginas, escolheria o
+                arquivo externo, pois facilita a organização e a
+                manutenção, assim como acontece com o CSS externo.
+            </p>
+
+            <h3>2. Como funcionam os componentes e as propriedades?</h3>
+            <p>
+                Os componentes permitem reutilizar partes da interface
+                sem precisar repetir todo o código. No catálogo da
+                AgroFeira, cada produto pode ser representado por um
+                componente próprio, assim como o componente Square
+                utilizado no tabuleiro. As propriedades, chamadas de
+                props, permitem enviar informações diferentes para
+                cada componente, como nome, preço e imagem do produto.
+            </p>
+
+            <h3>3. Qual a diferença entre props e state?</h3>
+            <p>
+                As props são informações recebidas pelo componente,
+                enquanto o state armazena informações que podem mudar
+                durante a utilização da página. No componente Product,
+                as informações do produto podem chegar por meio das
+                props, enquanto o estado controla alterações feitas
+                pelo usuário. Quando apenas dois produtos mudam após
+                um clique, isso acontece porque somente os componentes
+                que tiveram seus estados atualizados precisam refletir
+                aquela alteração. Na AgroFeira, esse comportamento pode
+                ser utilizado em produtos do catálogo, como a barra
+                de chocolate e o cheiro-verde.
+            </p>
+
+            <h3>4. Qual decisão de estilo foi tomada para o projeto?</h3>
+            <p>
+                Para a AgroFeira, escolheria manter uma folha de estilos
+                própria, pois ela permite personalizar as cores, fontes,
+                espaçamentos e a identidade visual do projeto. O
+                Bootstrap poderia acelerar a construção das páginas,
+                enquanto o Tailwind oferece classes utilitárias para
+                estilização. Minha decisão poderia mudar caso o projeto
+                precisasse de um desenvolvimento mais rápido ou de
+                componentes prontos. Durante os passos da atividade,
+                foi possível perceber como os componentes React
+                organizam a interface e como o CSS pode ser aplicado
+                para manter a aparência do projeto.
+            </p>
+        </section>
 
     </main>
 
-    <!-- Rodapé -->
     <footer>
-
-        <p>
-            AgroFeira — Valorizando a agricultura familiar
-        </p>
-
-        <p>
-            Paragominas - Pará
-        </p>
-
+        <p>AgroFeira — Atividade 08</p>
+        <p>João Victor Portilho Santos</p>
     </footer>
 
 </body>
-
 </html>
